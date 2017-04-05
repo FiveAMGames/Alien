@@ -37,10 +37,22 @@ public class PlayerMovement : MonoBehaviour
 			//transform.Rotate (0, 0, 0); 
 			//transform.Translate (-x, 0, -z, Space.World);    //Translate ignores collider collisions -> move the code to SimpleMove * speed
 
+			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			moveDirection = transform.TransformDirection(moveDirection);
+			//moveDirection *= speed;
 
+			/*
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
+
+			Vector3 movement = new Vector3 (-moveHorizontal, 0.0f, -moveVertical);
+			GetComponent<Rigidbody>().velocity = movement * speed;
+			GetComponent<Rigidbody> ().AddForce (moveDirection);*/
 
 			if (Input.GetKey ("w")) {
-				_controller.SimpleMove (-Vector3.forward * speed);
+				//transform.Translate (Vector3.back, speed, 0, 0);
+			_controller.SimpleMove (-Vector3.forward * speed);
+
 			}
 			if (Input.GetKey ("s")) {
 				_controller.SimpleMove (Vector3.forward * speed);
@@ -53,9 +65,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 
-			/*moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
-			moveDirection *= speed;*/
+			
 			
 
 

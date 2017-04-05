@@ -68,6 +68,7 @@ public class MyItem : MonoBehaviour
 
 
 			if (onDragging) {
+				
 				GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.Interpolate;
 				Cursor.visible = false;
 				DragItem ();
@@ -97,26 +98,25 @@ public class MyItem : MonoBehaviour
 		float newZ = globalPlayerTransform.z;
 
 		Vector3 temp = Input.mousePosition;
-		float tempZ = 5f; //distance from camera
 
-		float characterZ = GameObject.Find ("Player").transform.position.z;
+
+		float characterZ = GameObject.Find ("Player").transform.position.z;   //distance from camera
 
 		float distance = Camera.main.transform.position.z - characterZ;
 
-		//this.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (temp.x, temp.y, distance));
-		//this.transform.position = new Vector3 (transform.position.x, transform.position.y, characterZ+1f);
+	
 
 		joint.GetComponent<SpringJoint> ().connectedBody = this.gameObject.GetComponent<Rigidbody> ();
 
 		joint.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (temp.x, temp.y, distance));
-		joint.transform.position = new Vector3 (joint.transform.position.x, joint.transform.position.y, characterZ+1f);
+		joint.transform.position = new Vector3 (joint.transform.position.x, joint.transform.position.y, characterZ+0.6f);
 
 
 
 		Vector3 playerPos = GameObject.Find ("Player").transform.position;
 		Vector3 dplayer = joint.transform.position - playerPos;    //vector from player to object position
-		if (dplayer.magnitude > 2f) {							
-			joint.transform.position = playerPos + dplayer.normalized * 2f;
+		if (dplayer.magnitude > 1.5f) {     						//TODO 
+			joint.transform.position = playerPos + dplayer.normalized * 1.5f;
 
 			mouseOutOfTheRange = true;
 			//normalized = norm length to one; 
@@ -124,9 +124,9 @@ public class MyItem : MonoBehaviour
 			mouseOutOfTheRange = false;
 		}
 
-		if (joint.transform.position.y < playerPos.y - 1f) {
-			joint.transform.position = new Vector3 (joint.transform.position.x, playerPos.y - 1f, joint.transform.position.z);     //to prevent collision with a floor
-		}
+		//if (joint.transform.position.y < playerPos.y - 1f) {
+		//	joint.transform.position = new Vector3 (joint.transform.position.x, playerPos.y - 1f, joint.transform.position.z);     //to prevent collision with a floor
+		//}
 
 
 	}
@@ -192,7 +192,26 @@ public class MyItem : MonoBehaviour
 	void OnMouseDown ()
 	{
 		if (!matthewProperty) {
-			
+
+			if (onDragging) {
+
+				if (interactionObject == null) {
+					print ("no interaction object, drop");
+					onDragging = false;
+					joint.GetComponent<SpringJoint> ().connectedBody = null;
+					GetComponent<Rigidbody> ().drag = 0f;
+					GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
+					GetComponent<Rigidbody> ().isKinematic = false;
+					GetComponent<Collider> ().isTrigger = false;
+					inventory.removeItem (this);
+				} else {
+					print ("has an interaction object!");
+				}
+				return;
+			}
+
+
+
 			if (dist<3f){
 				
 			if (!inInventory ) {  
@@ -200,39 +219,33 @@ public class MyItem : MonoBehaviour
 				//place in inventory
 				GetComponent<Rigidbody> ().isKinematic = true;
 				inventory.addItem (this);
-			} else {                                                 //if it's already in inventory
-				if (onDragging) {
-						
-					if (interactionObject == null) {
-						onDragging = false;
-						joint.GetComponent<SpringJoint> ().connectedBody = null;
-							GetComponent<Rigidbody>().drag = 0f;
-							GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-						GetComponent<Rigidbody> ().isKinematic = false;
+			} else {  
+					//if it's already in inventory
+					if (!onDragging) {
+						GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
+						transform.parent = null;
+						onDragging = true;
+
+
 						GetComponent<Collider> ().isTrigger = false;
-						inventory.removeItem (this);
-					}
-				} else {   
-					GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
-					transform.parent = null;
-					onDragging = true;
-
-
-					GetComponent<Collider> ().isTrigger = false;
 						GetComponent<Rigidbody> ().isKinematic = false;
 				
-				} 
+					}
 				}	
 			}
-		}
+	
+	}
 	}
 
 
 
-
 	 void OnCollisionEnter(Collision coll){
+		if (!onDragging) {
+			//GetComponent<Rigidbody> ().isKinematic = true;
+		}
 		if (coll.gameObject.CompareTag("Ground")){
 			GetComponent<AudioSource> ().Play ();
+			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 
 	}
@@ -246,7 +259,7 @@ public class MyItem : MonoBehaviour
 			if (onDragging) {
 				//walls = coll.gameObject;
 				print ("I see the wall(");
-				transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+			//	transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
 			}
 		}
 	}
@@ -260,3 +273,4 @@ public class MyItem : MonoBehaviour
 		}*/
 	}
 }
+//Предметы в руке проходят

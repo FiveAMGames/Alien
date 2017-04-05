@@ -136,8 +136,10 @@ public class MyInventory : MonoBehaviour {
 			
 			Debug.Log ("Matthew has no place for a new item");
 		} else {
-			takeMatthew.SetActive (true);
+			takeMatthew.SetActive (true);  //bubble
+
 			item.transform.parent = matthew;
+			item.GetComponent<Collider> ().isTrigger = true;
 			item.transform.position = matthew.position;
 			//item.transform.rotation = Quaternion.identity;
 			Debug.Log ("Matthew has " + item.name);
