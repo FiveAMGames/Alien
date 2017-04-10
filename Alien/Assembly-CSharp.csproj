@@ -59,6 +59,7 @@
      <Compile Include="Assets\2_Code\SpritesShadowsScript.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
      <Compile Include="Assets\CameraScript.cs" />
+     <Compile Include="Assets\Transporent.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

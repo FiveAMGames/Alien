@@ -60,6 +60,9 @@ public class MyItem : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		/*if (Input.GetMouseButtonDown (0)) {
+			MouseClick ();
+		}*/
 		
 		if (!matthewProperty) {
 			dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
@@ -115,7 +118,7 @@ public class MyItem : MonoBehaviour
 
 		Vector3 playerPos = GameObject.Find ("Player").transform.position;
 		Vector3 dplayer = joint.transform.position - playerPos;    //vector from player to object position
-		if (dplayer.magnitude > 1.5f) {     						//TODO 
+		if (dplayer.magnitude > 1.5f) {     						//TODO  or not todo
 			joint.transform.position = playerPos + dplayer.normalized * 1.5f;
 
 			mouseOutOfTheRange = true;
@@ -139,17 +142,23 @@ public class MyItem : MonoBehaviour
 
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 8)) {
 			if (hit.collider.GetComponent<InteractionScript> ().CheckIfInteractable(gameObject.name) == true) {
-				interactionObject = hit.collider.gameObject;
+				
 
-				Debug.Log ("I see interaction object with Raycast");
-				if (Input.GetMouseButtonDown (0)) {
-					Debug.Log ("I am clicking");
+				Vector3 distToInteraction = transform.position - hit.transform.position;
+				//print (distToInteraction);
+				if (distToInteraction.magnitude < 1.5f) {
+					interactionObject = hit.collider.gameObject;
 
-					Debug.Log ("On Drag and click");
-					//interactionObject = hit.collider.gameObject;
-					interactionObject.SendMessage ("Go");
+					Debug.Log ("I see interaction object with Raycast");
+					if (Input.GetMouseButtonDown (0)) {
+						Debug.Log ("I am clicking");
+
+						Debug.Log ("On Drag and click");
+						//interactionObject = hit.collider.gameObject;
+						interactionObject.SendMessage ("Go");
 
 
+					}
 				}
 			}
 
@@ -186,6 +195,68 @@ public class MyItem : MonoBehaviour
 		} 
 	
 	}
+
+	/*void MouseClick(){
+		RaycastHit hit;
+
+		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);
+
+
+		if (Physics.Raycast (ray, out hit)) {
+
+			Vector3 distToObj = GameObject.Find ("Player").transform.position - transform.position;
+
+			if (hit.collider.gameObject == this.gameObject && (distToObj.magnitude < 2f)) {
+	
+				if (!matthewProperty) {
+
+					if (onDragging) {
+
+						if (interactionObject == null) {
+							print ("no interaction object, drop");
+							onDragging = false;
+							joint.GetComponent<SpringJoint> ().connectedBody = null;
+							GetComponent<Rigidbody> ().drag = 0f;
+							GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
+							GetComponent<Rigidbody> ().isKinematic = false;
+							GetComponent<Collider> ().isTrigger = false;
+							inventory.removeItem (this);
+						} else {
+							print ("has an interaction object!");
+						}
+						return;
+					}
+
+
+
+					if (dist < 3f) {
+
+						if (!inInventory) {  
+
+							//place in inventory
+							GetComponent<Rigidbody> ().isKinematic = true;
+							inventory.addItem (this);
+						} else {  
+							//if it's already in inventory
+							if (!onDragging) {
+								GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
+								transform.parent = null;
+								onDragging = true;
+
+
+								GetComponent<Collider> ().isTrigger = false;
+								GetComponent<Rigidbody> ().isKinematic = false;
+
+							}
+						}	
+					}
+
+				}
+			}
+		}
+
+	}*/
+
 
 
 
