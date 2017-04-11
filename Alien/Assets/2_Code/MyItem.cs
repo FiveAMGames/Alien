@@ -18,7 +18,7 @@ public class MyItem : MonoBehaviour
 	public bool matthewProperty = false;
 
 
-
+	public bool interaction = false;
 
 	public bool onDragging = false;
 
@@ -47,6 +47,13 @@ public class MyItem : MonoBehaviour
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		//sets tag of gameobject
 		gameObject.tag = "Item";
+
+
+		if (GetComponent<Transporent> () == null) {
+			foreach (Transform child in transform) {
+				child.gameObject.AddComponent<Transporent> ();
+			}
+		}
 	}
 
 
@@ -76,16 +83,38 @@ public class MyItem : MonoBehaviour
 				Cursor.visible = false;
 				DragItem ();
 				GetComponent<Rigidbody>().drag = 20f;
-				Interaction ();
+
 			
 				DropItemMouseOutOfRange ();
 
+				if (Input.GetMouseButtonDown (0) && interactionObject != null) {
+					Debug.Log ("I am clicking");
+
+					Debug.Log ("On Drag and click");
+					//interactionObject = hit.collider.gameObject;
+					interactionObject.SendMessage ("Go");
+
+
+
+
+
+
+				}
+
 			}
+
+
+
+
+
 			if (!onDragging) {
 				Cursor.visible = true;
 				GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.None;
 			}
 
+			/*if (Input.GetMouseButtonDown (0)) {
+				MouseClick ();
+			}*/
 
 		}
 	}
@@ -130,33 +159,28 @@ public class MyItem : MonoBehaviour
 		//if (joint.transform.position.y < playerPos.y - 1f) {
 		//	joint.transform.position = new Vector3 (joint.transform.position.x, playerPos.y - 1f, joint.transform.position.z);     //to prevent collision with a floor
 		//}
-
+		Interaction ();
 
 	}
 
 	void Interaction(){
 		RaycastHit hit;
 
-		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);
-
+		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);  //nicht camera, object!
+		  
 
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 8)) {
-			if (hit.collider.GetComponent<InteractionScript> ().CheckIfInteractable(gameObject.name) == true) {
+			
+			if (hit.collider.GetComponent<InteractionScript> () != null) {
+				if (hit.collider.GetComponent<InteractionScript> ().CheckIfInteractable (gameObject.name) == true) {  //TODO Null reference...only on the edge of cube
 				
 
-				Vector3 distToInteraction = transform.position - hit.transform.position;
-				//print (distToInteraction);
-				if (distToInteraction.magnitude < 1.5f) {
-					interactionObject = hit.collider.gameObject;
+					Vector3 distToInteraction = transform.position - hit.transform.position;
+					//print (distToInteraction);
+					if (distToInteraction.magnitude < 2f) {
+						interactionObject = hit.collider.gameObject;
 
-					Debug.Log ("I see interaction object with Raycast");
-					if (Input.GetMouseButtonDown (0)) {
-						Debug.Log ("I am clicking");
-
-						Debug.Log ("On Drag and click");
-						//interactionObject = hit.collider.gameObject;
-						interactionObject.SendMessage ("Go");
-
+						Debug.Log ("I see interaction object with Raycast");
 
 					}
 				}
@@ -202,7 +226,7 @@ public class MyItem : MonoBehaviour
 		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);
 
 
-		if (Physics.Raycast (ray, out hit)) {
+		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 9)) {
 
 			Vector3 distToObj = GameObject.Find ("Player").transform.position - transform.position;
 

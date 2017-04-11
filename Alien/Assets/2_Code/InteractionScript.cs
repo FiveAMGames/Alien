@@ -23,14 +23,14 @@ public class InteractionScript : MonoBehaviour {
 
 	public void Go(){
 		Debug.Log ("Yay! Interaction!!!");
-		if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {
+		if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
 			//inventory.removeItem (inventory.getItemInHand ());
 			if (destroyParticles != null) {
 				var expl = Instantiate (destroyParticles, transform.position, Quaternion.identity);
 				Destroy (inventory.getItemInHand ().gameObject);
 
 				inventory.removeItem (inventory.getItemInHand ());
-				Destroy (gameObject);
+				Destroy (this.gameObject);
 				Destroy (expl, 3);
 			}
 			Debug.Log ("Boom");
