@@ -113,11 +113,13 @@ public class MyInventory : MonoBehaviour {
 	public MyItem getItemInHand()
 	{
 		
-		if (_inHand.onDragging == true) {
-			return _inHand;
-		} else {
-			return _inLeg;
+		if (_inHand != null){if (_inHand.onDragging == true) {
+				return _inHand;}
+		} if (_inLeg != null) {if (_inLeg.onDragging == true) {
+				return _inLeg;
+			}
 		}
+		return null;
 
 	}
 
