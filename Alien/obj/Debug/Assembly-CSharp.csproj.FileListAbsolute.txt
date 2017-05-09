@@ -41,7 +41,6 @@ C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.Analytics
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.dll
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.HoloLens.dll
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.Networking.dll
-C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.UI.dll
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.VR.dll
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\Mono.Cecil.dll
@@ -56,7 +55,10 @@ C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.Networking.xml
-C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.TestRunner.dll
+C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\UnityEngine.TestRunner.xml
+C:\Users\Sasha\Documents\GitHub\Alien\Alien\Temp\bin\Debug\nunit.framework.xml

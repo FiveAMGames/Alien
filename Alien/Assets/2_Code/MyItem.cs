@@ -51,7 +51,7 @@ public class MyItem : MonoBehaviour
 
 		if (GetComponent<Transporent> () == null) {
 			foreach (Transform child in transform) {
-				child.gameObject.AddComponent<Transporent> ();
+				//child.gameObject.AddComponent<Transporent> ();
 			}
 		}
 	}

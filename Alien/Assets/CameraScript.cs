@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour {
 
 	public GameObject player;
 	private float startpositionZ;
+	private bool check = false;
 	// Use this for initialization
 	void Start () {
 		startpositionZ = transform.position.z;
@@ -14,6 +15,16 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
+		if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
+			
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-0.9f*Time.deltaTime);
+
+		}
+		if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+0.9f*Time.deltaTime);
+
+		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
 			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-1f*Time.deltaTime*10f);
 		}
@@ -25,4 +36,16 @@ public class CameraScript : MonoBehaviour {
 		}
 		transform.LookAt (player.transform);
 	}
+	/*void LateUpdate(){
+		if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
+
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-0.1f);
+
+		}
+		if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+0.1f);
+
+		}
+	}*/
 }

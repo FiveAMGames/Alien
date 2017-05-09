@@ -59,8 +59,14 @@
      <Compile Include="Assets\2_Code\SpritesShadowsScript.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
      <Compile Include="Assets\CameraScript.cs" />
+     <Compile Include="Assets\LookAtTarget.cs" />
      <Compile Include="Assets\OutOfSprites.cs" />
      <Compile Include="Assets\Transporent.cs" />
+     <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
+     <None Include="Assets\ComixShader\Shader\SketchComix.shader" />
+     <None Include="Assets\TSF\Shaders\TSFOutline.shader" />
+     <None Include="Assets\TSF\Shaders\TSF.shader" />
+     <None Include="Assets\ComixShader\Shader\Comix.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
