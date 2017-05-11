@@ -17,12 +17,13 @@ public class CameraScript : MonoBehaviour {
 		transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
 		if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
 			
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-0.9f*Time.deltaTime);
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-1.2f*Time.deltaTime);
 
 		}
-		if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+0.9f*Time.deltaTime);
+		//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+		if (transform.position.z - player.transform.position.z <= 3f){
+			print ("I am close");
+			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+1.2f*Time.deltaTime);
 
 		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {

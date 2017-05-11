@@ -103,6 +103,17 @@ public class AnimationCharacter : MonoBehaviour {
 
 	}
 
+	public void Rubik(){
+		anim.SetBool ("RubikMess", true);
+	}
 
+	public void RubikByMatthew(){
+		anim.SetBool ("RubikMatthew", true);
+		GetComponentInChildren<rubik> ().Matthew ();
+	}
+	public void RubikMatthewEnd(){
+		anim.SetBool ("RubikMatthew", false);
+		GetComponentInChildren<rubik> ().Drop ();
+	}
 		
 }
