@@ -295,6 +295,7 @@ public class MyItem : MonoBehaviour
 					onDragging = false;
 					joint.GetComponent<SpringJoint> ().connectedBody = null;
 					GetComponent<Rigidbody> ().drag = 0f;
+					//transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 					GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
 					GetComponent<Rigidbody> ().isKinematic = false;
 					GetComponent<Collider> ().isTrigger = false;

@@ -105,15 +105,22 @@ public class AnimationCharacter : MonoBehaviour {
 
 	public void Rubik(){
 		anim.SetBool ("RubikMess", true);
+		inventory.canTakeRightHand = false;
+		inventory.canTakeMatthew = false;
 	}
 
 	public void RubikByMatthew(){
 		anim.SetBool ("RubikMatthew", true);
 		GetComponentInChildren<rubik> ().Matthew ();
+		inventory.canTakeRightHand = true;
+
+
 	}
+
 	public void RubikMatthewEnd(){
 		anim.SetBool ("RubikMatthew", false);
 		GetComponentInChildren<rubik> ().Drop ();
+		inventory.canTakeMatthew = true;
 	}
 		
 }

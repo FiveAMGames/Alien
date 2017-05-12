@@ -33,7 +33,7 @@ public class rubik : MonoBehaviour {
 	public void Matthew(){
 		GetComponentInChildren<Animator> ().SetBool ("Mess", false);
 		transform.position =MatthewHand.transform.position;
-		transform.rotation = MatthewHand.transform.rotation;
+		//transform.rotation = MatthewHand.transform.rotation;
 		transform.SetParent (MatthewHand.transform);
 		GetComponentInChildren<Animator> ().SetBool ("InMatthew", true);
 

@@ -20,9 +20,12 @@ public class MatthewTrigger : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider coll){
 		if (coll.CompareTag ("Player")) {
-			coll.GetComponent<SoundScript> ().PlayMatthewTake ();
+			
 			inventory.MatthewAddItem (relatedObject);
-			Destroy (gameObject);
+			if (inventory.canTakeMatthew) {
+				coll.GetComponent<SoundScript> ().PlayMatthewTake ();
+				Destroy (gameObject);
+			}
 		}
 	}
 
