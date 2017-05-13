@@ -17,12 +17,15 @@ public class rubik : MonoBehaviour {
 	}
 	void OnMouseDown(){
 		if (!RightHand.GetComponentInParent<Animator> ().GetBool ("LeftHand") && !RightHand.GetComponentInParent<Animator> ().GetBool ("RightHand")) {
-			transform.position = RightHand.transform.position;
-			transform.rotation = RightHand.transform.rotation;
-			transform.SetParent (RightHand.transform);
-			RightHand.GetComponentInParent<AnimationCharacter> ().Rubik ();
-			GetComponentInChildren<Animator> ().SetBool ("Mess", true);
-			GetComponent<Rigidbody> ().isKinematic = true;
+			float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
+			if (dist < 2f) {
+				transform.position = RightHand.transform.position;
+				transform.rotation = RightHand.transform.rotation;
+				transform.SetParent (RightHand.transform);
+				RightHand.GetComponentInParent<AnimationCharacter> ().Rubik ();
+				GetComponentInChildren<Animator> ().SetBool ("Mess", true);
+				GetComponent<Rigidbody> ().isKinematic = true;
+			}
 		}
 	}
 	/*public void Messed(){

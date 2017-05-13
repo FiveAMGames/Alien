@@ -315,9 +315,13 @@ public class MyItem : MonoBehaviour
 				//place in inventory
 				GetComponent<Rigidbody> ().isKinematic = true;
 				inventory.addItem (this);
+					GetComponentInChildren<InHandColliderScript> ().inHand = true;
+					GetComponentInChildren<SphereCollider> ().enabled = true;
 			} else {  
 					//if it's already in inventory
 					if (!onDragging) {
+						GetComponentInChildren<InHandColliderScript> ().inHand = false;
+						GetComponentInChildren<SphereCollider> ().enabled = false;
 						GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
 						transform.parent = null;
 						onDragging = true;

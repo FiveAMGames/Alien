@@ -58,7 +58,9 @@
      <Compile Include="Assets\2_Code\SoundScript.cs" />
      <Compile Include="Assets\2_Code\SpritesShadowsScript.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
+     <Compile Include="Assets\AlienInBed.cs" />
      <Compile Include="Assets\CameraScript.cs" />
+     <Compile Include="Assets\InHandColliderScript.cs" />
      <Compile Include="Assets\LookAtTarget.cs" />
      <Compile Include="Assets\OutOfSprites.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
@@ -86,6 +88,7 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\keyScript.cs" />
      <Compile Include="Assets\rubik.cs" />
      <Compile Include="Assets\rubikAnimationEnd.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
