@@ -10,7 +10,7 @@ public class keyScript : MonoBehaviour {
 	private bool inHand = false;
 	private bool onDragging = false;
 	public Camera cameraBed;
-
+	public GameObject animationParent;
 	public GameObject interactionObject;
 	// Use this for initialization
 	void Start () {
@@ -95,14 +95,14 @@ public class keyScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 8)) {
 			if (hit.collider.gameObject == interactionObject) {
 				if (Input.GetMouseButtonDown (0)) {
+					animationParent.GetComponentInChildren<MeshRenderer> ().enabled = true;
+
+
 					interactionObject.GetComponent<Animator> ().SetBool ("Open", true);
 					onDragging = false;
 					joint.GetComponent<SpringJoint> ().connectedBody = null;
-					GetComponent<Rigidbody>().drag = 0f;
-					//GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-					GetComponent<Rigidbody> ().isKinematic = false;
-					//GetComponent<Collider> ().isTrigger = false;
-					GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.None;
+					Destroy (gameObject);
+
 				}
 			}
 		}

@@ -69,6 +69,7 @@
      <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
      <Compile Include="Assets\OutlineEffect\Outline.cs" />
      <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
+     <Compile Include="Assets\PillowScript.cs" />
      <Compile Include="Assets\Transporent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
