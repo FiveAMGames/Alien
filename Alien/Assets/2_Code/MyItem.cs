@@ -13,7 +13,7 @@ using UnityEngine;
 public class MyItem : MonoBehaviour
 {
 	
-
+	public GameObject positionOnDragStart;
 
 	public bool matthewProperty = false;
 
@@ -59,11 +59,14 @@ public class MyItem : MonoBehaviour
 
 	// Use this for initialization
 	void Start ()
-	{
+	{ 
+		positionOnDragStart = GameObject.Find ("ItemDragStart");
 		joint = GameObject.Find ("Joint");
 
 	}
-	
+
+
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -220,66 +223,6 @@ public class MyItem : MonoBehaviour
 	
 	}
 
-	/*void MouseClick(){
-		RaycastHit hit;
-
-		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);
-
-
-		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 9)) {
-
-			Vector3 distToObj = GameObject.Find ("Player").transform.position - transform.position;
-
-			if (hit.collider.gameObject == this.gameObject && (distToObj.magnitude < 2f)) {
-	
-				if (!matthewProperty) {
-
-					if (onDragging) {
-
-						if (interactionObject == null) {
-							print ("no interaction object, drop");
-							onDragging = false;
-							joint.GetComponent<SpringJoint> ().connectedBody = null;
-							GetComponent<Rigidbody> ().drag = 0f;
-							GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-							GetComponent<Rigidbody> ().isKinematic = false;
-							GetComponent<Collider> ().isTrigger = false;
-							inventory.removeItem (this);
-						} else {
-							print ("has an interaction object!");
-						}
-						return;
-					}
-
-
-
-					if (dist < 3f) {
-
-						if (!inInventory) {  
-
-							//place in inventory
-							GetComponent<Rigidbody> ().isKinematic = true;
-							inventory.addItem (this);
-						} else {  
-							//if it's already in inventory
-							if (!onDragging) {
-								GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
-								transform.parent = null;
-								onDragging = true;
-
-
-								GetComponent<Collider> ().isTrigger = false;
-								GetComponent<Rigidbody> ().isKinematic = false;
-
-							}
-						}	
-					}
-
-				}
-			}
-		}
-
-	}*/
 
 
 
@@ -317,6 +260,7 @@ public class MyItem : MonoBehaviour
 				inventory.addItem (this);
 					GetComponentInChildren<InHandColliderScript> ().inHand = true;
 					GetComponentInChildren<SphereCollider> ().enabled = true;
+
 			} else {  
 					//if it's already in inventory
 					if (!onDragging) {
@@ -325,6 +269,7 @@ public class MyItem : MonoBehaviour
 						GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
 						transform.parent = null;
 						onDragging = true;
+						transform.position = positionOnDragStart.transform.position;
 
 
 						GetComponent<Collider> ().isTrigger = false;
@@ -345,6 +290,7 @@ public class MyItem : MonoBehaviour
 		}
 		if (coll.gameObject.CompareTag("Ground")){
 			GetComponent<AudioSource> ().Play ();
+			GetComponent<Rigidbody> ().drag = 20f;
 			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 
