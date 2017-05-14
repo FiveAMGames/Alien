@@ -4,9 +4,7 @@
 public class PlayerMovement : MonoBehaviour 
 {
 	
-
-
-
+	
 	private Vector3 _moveDirection = Vector3.zero;
 	private CharacterController _controller;
 
