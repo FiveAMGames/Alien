@@ -13,7 +13,7 @@ using UnityEngine;
 public class MyItem : MonoBehaviour
 {
 	
-
+	public GameObject positionForDragStart;
 
 	public bool matthewProperty = false;
 
@@ -60,6 +60,7 @@ public class MyItem : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		positionForDragStart = GameObject.Find ("positionForDragStart");
 		joint = GameObject.Find ("Joint");
 
 	}
@@ -325,7 +326,7 @@ public class MyItem : MonoBehaviour
 						GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
 						transform.parent = null;
 						onDragging = true;
-
+						transform.position = positionForDragStart.transform.position;
 
 						GetComponent<Collider> ().isTrigger = false;
 						GetComponent<Rigidbody> ().isKinematic = false;
@@ -345,6 +346,7 @@ public class MyItem : MonoBehaviour
 		}
 		if (coll.gameObject.CompareTag("Ground")){
 			GetComponent<AudioSource> ().Play ();
+			GetComponent<Rigidbody> ().drag = 20f;
 			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 

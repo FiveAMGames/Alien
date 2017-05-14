@@ -46,31 +46,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\2_Code\AlienInBed.cs" />
      <Compile Include="Assets\2_Code\Animation.cs" />
      <Compile Include="Assets\2_Code\AnimationCharacter.cs" />
      <Compile Include="Assets\2_Code\Balloon.cs" />
+     <Compile Include="Assets\2_Code\CameraScript.cs" />
+     <Compile Include="Assets\2_Code\InHandColliderScript.cs" />
      <Compile Include="Assets\2_Code\InteractionScript.cs" />
      <Compile Include="Assets\2_Code\LookAtCamera.cs" />
+     <Compile Include="Assets\2_Code\LookAtTarget.cs" />
      <Compile Include="Assets\2_Code\MatthewTrigger.cs" />
      <Compile Include="Assets\2_Code\MyInventory.cs" />
      <Compile Include="Assets\2_Code\MyItem.cs" />
+     <Compile Include="Assets\2_Code\OutOfSprites.cs" />
+     <Compile Include="Assets\2_Code\PillowScript.cs" />
      <Compile Include="Assets\2_Code\PlayerMovement.cs" />
      <Compile Include="Assets\2_Code\SoundScript.cs" />
      <Compile Include="Assets\2_Code\SpritesShadowsScript.cs" />
+     <Compile Include="Assets\2_Code\Transporent.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
-     <Compile Include="Assets\AlienInBed.cs" />
-     <Compile Include="Assets\CameraScript.cs" />
-     <Compile Include="Assets\InHandColliderScript.cs" />
-     <Compile Include="Assets\LookAtTarget.cs" />
-     <Compile Include="Assets\OutOfSprites.cs" />
+     <Compile Include="Assets\2_Code\keyScript.cs" />
+     <Compile Include="Assets\2_Code\rubik.cs" />
+     <Compile Include="Assets\2_Code\rubikAnimationEnd.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Toggle.cs" />
      <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
      <Compile Include="Assets\OutlineEffect\Outline.cs" />
      <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
-     <Compile Include="Assets\PillowScript.cs" />
-     <Compile Include="Assets\Transporent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\HSVChangedEvent.cs" />
@@ -89,9 +92,7 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
-     <Compile Include="Assets\keyScript.cs" />
-     <Compile Include="Assets\rubik.cs" />
-     <Compile Include="Assets\rubikAnimationEnd.cs" />
+     <Compile Include="Assets\lockerScript.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
