@@ -21,7 +21,7 @@ public class InHandColliderScript : MonoBehaviour {
 			item.transform.parent = null;
 			item.GetComponent<MyItem> ().onDragging = true;
 			item.transform.position = item.GetComponent<MyItem> ().positionForDragStart.transform.position;
-
+			item.transform.rotation = Quaternion.identity;
 			item.GetComponent<Collider> ().isTrigger = false;
 			item.GetComponent<Rigidbody> ().isKinematic = false;
 		}

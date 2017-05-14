@@ -54,12 +54,14 @@ public class MyInventory : MonoBehaviour {
 			takeBolloon.SetActive (true);
 				if (_inHand == null) {
 					_inHand = item;
-					item.transform.parent = hand;
-					item.transform.position = hand.position;
+					item.transform.position = item.GetComponent<MyItem>().whereToParent.position;
+					item.transform.rotation = item.GetComponent<MyItem>().whereToParent.rotation;
+					item.transform.parent = item.GetComponent<MyItem>().whereToParent;
+
 					item.inInventory = true;
 
 					Debug.Log ("Parenting to hand");
-				} else {
+				} /*else {
 					_inLeg = item;
 					item.transform.parent = leg;
 					item.transform.position = leg.position;
@@ -83,7 +85,7 @@ public class MyInventory : MonoBehaviour {
 						GameObject.Find ("Player").GetComponentInChildren<Animator> ().SetBool ("JumpOneLeg", true);
 					}
 			
-				}
+				}*/
 			}
 		}
 	}
@@ -127,8 +129,8 @@ public class MyInventory : MonoBehaviour {
 
 	public void backInHand(MyItem item){
 		if (item == _inHand) {
-			item.transform.parent = hand;
-			item.transform.position = hand.position;
+			item.transform.parent = item.GetComponent<MyItem>().whereToParent;;
+			item.transform.position = item.GetComponent<MyItem>().whereToParent.position;
 		} else {
 			item.transform.parent = leg;
 			item.transform.position = leg.position;

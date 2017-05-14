@@ -12,6 +12,8 @@ using UnityEngine;
 
 public class MyItem : MonoBehaviour
 {
+
+	public Transform whereToParent;
 	
 	public GameObject positionForDragStart;
 
@@ -36,6 +38,7 @@ public class MyItem : MonoBehaviour
 
 	public GameObject joint;
 
+	private bool rotationInHand = false;
 
 
 	private bool mouseOutOfTheRange = false;
@@ -118,7 +121,15 @@ public class MyItem : MonoBehaviour
 			}*/
 
 		}
+		if (inInventory && !onDragging) {
+			
+				//transform.rotation = Quaternion.identity;
+			
+		}
 	}
+
+
+
 	void DragItem(){
 		
 		transform.rotation = Quaternion.identity;
@@ -221,70 +232,6 @@ public class MyItem : MonoBehaviour
 	
 	}
 
-	/*void MouseClick(){
-		RaycastHit hit;
-
-		Ray ray = new Ray (Camera.main.transform.position, transform.position - Camera.main.transform.position);
-
-
-		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 9)) {
-
-			Vector3 distToObj = GameObject.Find ("Player").transform.position - transform.position;
-
-			if (hit.collider.gameObject == this.gameObject && (distToObj.magnitude < 2f)) {
-	
-				if (!matthewProperty) {
-
-					if (onDragging) {
-
-						if (interactionObject == null) {
-							print ("no interaction object, drop");
-							onDragging = false;
-							joint.GetComponent<SpringJoint> ().connectedBody = null;
-							GetComponent<Rigidbody> ().drag = 0f;
-							GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-							GetComponent<Rigidbody> ().isKinematic = false;
-							GetComponent<Collider> ().isTrigger = false;
-							inventory.removeItem (this);
-						} else {
-							print ("has an interaction object!");
-						}
-						return;
-					}
-
-
-
-					if (dist < 3f) {
-
-						if (!inInventory) {  
-
-							//place in inventory
-							GetComponent<Rigidbody> ().isKinematic = true;
-							inventory.addItem (this);
-						} else {  
-							//if it's already in inventory
-							if (!onDragging) {
-								GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it
-								transform.parent = null;
-								onDragging = true;
-
-
-								GetComponent<Collider> ().isTrigger = false;
-								GetComponent<Rigidbody> ().isKinematic = false;
-
-							}
-						}	
-					}
-
-				}
-			}
-		}
-
-	}*/
-
-
-
-
 	void OnMouseDown ()
 	{
 		if (!matthewProperty) {
@@ -330,6 +277,7 @@ public class MyItem : MonoBehaviour
 
 						GetComponent<Collider> ().isTrigger = false;
 						GetComponent<Rigidbody> ().isKinematic = false;
+						rotationInHand = false;
 				
 					}
 				}	
