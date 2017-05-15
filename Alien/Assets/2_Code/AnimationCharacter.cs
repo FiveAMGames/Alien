@@ -122,5 +122,8 @@ public class AnimationCharacter : MonoBehaviour {
 		GetComponentInChildren<rubik> ().Drop ();
 		inventory.canTakeMatthew = true;
 	}
+	public void KlavierEnd(){
+		GetComponentInParent<PlayerMovement> ().moveable = true;
+	}
 		
 }

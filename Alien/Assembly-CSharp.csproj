@@ -50,7 +50,11 @@
      <Compile Include="Assets\2_Code\Animation.cs" />
      <Compile Include="Assets\2_Code\AnimationCharacter.cs" />
      <Compile Include="Assets\2_Code\Balloon.cs" />
+     <Compile Include="Assets\2_Code\BaloonSystem.cs" />
+     <Compile Include="Assets\2_Code\BowlPlace.cs" />
      <Compile Include="Assets\2_Code\CameraScript.cs" />
+     <Compile Include="Assets\2_Code\CatFoodScript.cs" />
+     <Compile Include="Assets\2_Code\FridgeButton.cs" />
      <Compile Include="Assets\2_Code\InHandColliderScript.cs" />
      <Compile Include="Assets\2_Code\InteractionScript.cs" />
      <Compile Include="Assets\2_Code\LookAtCamera.cs" />
@@ -66,12 +70,11 @@
      <Compile Include="Assets\2_Code\Transporent.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
      <Compile Include="Assets\2_Code\keyScript.cs" />
+     <Compile Include="Assets\2_Code\lockerScript.cs" />
      <Compile Include="Assets\2_Code\rubik.cs" />
      <Compile Include="Assets\2_Code\rubikAnimationEnd.cs" />
-     <Compile Include="Assets\BaloonSystem.cs" />
-     <Compile Include="Assets\BowlPlace.cs" />
-     <Compile Include="Assets\CatFoodScript.cs" />
-     <Compile Include="Assets\FridgeButton.cs" />
+     <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
+     <Compile Include="Assets\KlavierTrigger.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Toggle.cs" />
@@ -96,8 +99,6 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
-     <Compile Include="Assets\lockerScript.cs" />
-     <Compile Include="Assets\whereToPlaceInHandForPrefab.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

@@ -30,7 +30,6 @@ public class MyInventory : MonoBehaviour {
 
 
 
-
 		if (_inHand) {
 			//print ("I have no free hands!");
 			//GameObject.Find ("Player").GetComponentInChildren<AnimationCharacter> ().RightHandUp();
@@ -82,6 +81,16 @@ public class MyInventory : MonoBehaviour {
 		item.inInventory = false;
 	}
 
+	public void removeItemMatthew(){
+		_inMatthew.transform.parent = null;
+		_inMatthew.GetComponent<Rigidbody> ().isKinematic = false;
+		_inMatthew.GetComponent<Collider> ().isTrigger = false;
+		_inMatthew.GetComponent<MyItem> ().matthewProperty = false;
+		_inMatthew = null;
+
+	}
+
+
 	public bool hasItemInInventory(MyItem item){
 		return (item == _inHand || item == _inLeg);
 	}
@@ -127,6 +136,7 @@ public class MyInventory : MonoBehaviour {
 				item.transform.rotation = matthew.rotation;
 				Debug.Log ("Matthew has " + item.name);
 				_inMatthew = item;
+				item.GetComponent<Rigidbody> ().isKinematic = true;
 			}
 		}
 	}

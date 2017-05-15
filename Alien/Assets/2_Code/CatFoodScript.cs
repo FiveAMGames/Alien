@@ -27,6 +27,7 @@ public class CatFoodScript : MonoBehaviour {
 				Destroy (gameObject);
 
 			} else
+				
 				Destroy (this);
 		}
 	}
