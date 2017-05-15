@@ -294,7 +294,7 @@ public class MyItem : MonoBehaviour
 		}
 		if (coll.gameObject.CompareTag("Ground")){
 			GetComponent<AudioSource> ().Play ();
-			GetComponent<Rigidbody> ().drag = 20f;
+			GetComponent<Rigidbody> ().drag = 10f;
 			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 

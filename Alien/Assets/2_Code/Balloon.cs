@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour {
 
-
-	private float timer = 0;
+	public float time = 4f;
+	private float timer = 0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,20 +13,17 @@ public class Balloon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		timer++;
+		timer += Time.deltaTime;
 		//Debug.Log (timer);
-		if (gameObject.name != "matthewTakeSomething") {
-			if (timer > 45f) {
+
+
+			
+
+			if (timer > time) {
 				timer = 0f;
 				gameObject.SetActive (false);
 
-			}
-		} else {
-			if (timer > 100f) {
-				timer = 0f;
-				gameObject.SetActive (false);
 
-			}
 		}
 
 
