@@ -18,7 +18,7 @@ public class MatthewTrigger : MonoBehaviour {
 		
 	}
 
-	public void OnTriggerEnter(Collider coll){
+	public void OnTriggerStay(Collider coll){
 		if (coll.CompareTag ("Player")) {
 			
 			inventory.MatthewAddItem (relatedObject);

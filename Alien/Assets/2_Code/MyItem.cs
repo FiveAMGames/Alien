@@ -49,7 +49,7 @@ public class MyItem : MonoBehaviour
 	{
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		//sets tag of gameobject
-		gameObject.tag = "Item";
+		//gameObject.tag = "Item";
 
 
 		if (GetComponent<Transporent> () == null) {
@@ -293,8 +293,10 @@ public class MyItem : MonoBehaviour
 			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 		if (coll.gameObject.CompareTag("Ground")){
-			GetComponent<AudioSource> ().Play ();
-			GetComponent<Rigidbody> ().drag = 10f;
+			if (GetComponent<AudioSource> ().enabled == true) {
+				GetComponent<AudioSource> ().Play ();
+				GetComponent<Rigidbody> ().drag = 10f;
+			}
 			//GetComponent<Rigidbody> ().isKinematic = true;
 		}
 

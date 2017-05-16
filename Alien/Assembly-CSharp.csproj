@@ -74,6 +74,7 @@
      <Compile Include="Assets\2_Code\rubik.cs" />
      <Compile Include="Assets\2_Code\rubikAnimationEnd.cs" />
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
+     <Compile Include="Assets\CatFoodTriggerScript.cs" />
      <Compile Include="Assets\KlavierTrigger.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
@@ -99,6 +100,7 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\catAnimation.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

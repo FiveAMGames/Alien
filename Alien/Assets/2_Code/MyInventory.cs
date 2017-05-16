@@ -30,9 +30,11 @@ public class MyInventory : MonoBehaviour {
 
 
 
-		if (_inHand) {
-			//print ("I have no free hands!");
-			//GameObject.Find ("Player").GetComponentInChildren<AnimationCharacter> ().RightHandUp();
+		if (_inHand !=null) {
+			canTakeRightHand = false;
+		}
+		if (_inHand ==null) {
+			canTakeRightHand = true;
 		}
 		else if (_inMatthew) {
 			//GameObject.Find ("Player").GetComponentInChildren<AnimationCharacter> ().LeftHandUp();
