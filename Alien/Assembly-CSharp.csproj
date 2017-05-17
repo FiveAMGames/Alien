@@ -76,12 +76,6 @@
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
      <Compile Include="Assets\CatFoodTriggerScript.cs" />
      <Compile Include="Assets\KlavierTrigger.cs" />
-     <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
-     <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
-     <Compile Include="Assets\OutlineEffect\Demo\Toggle.cs" />
-     <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
-     <Compile Include="Assets\OutlineEffect\Outline.cs" />
-     <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\HSVChangedEvent.cs" />
@@ -105,10 +99,7 @@
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonExt.shader" />
-     <None Include="Assets\ProceduralMatcap\ProceduralMatcap.shader" />
-     <None Include="Assets\OutlineEffect\Resources\OutlineShader.shader" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonDefaultOutline.shader" />
-     <None Include="Assets\OutlineEffect\Resources\OutlineBufferShader.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonInc.cginc" />
      <None Include="Assets\ComixShader\Shader\SketchComix.shader" />
      <None Include="Assets\TSF\Shaders\TSFOutline.shader" />

@@ -52,10 +52,7 @@
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonExt.shader" />
-     <None Include="Assets\ProceduralMatcap\ProceduralMatcap.shader" />
-     <None Include="Assets\OutlineEffect\Resources\OutlineShader.shader" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonDefaultOutline.shader" />
-     <None Include="Assets\OutlineEffect\Resources\OutlineBufferShader.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonInc.cginc" />
      <None Include="Assets\ComixShader\Shader\SketchComix.shader" />
      <None Include="Assets\TSF\Shaders\TSFOutline.shader" />

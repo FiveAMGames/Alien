@@ -7,6 +7,7 @@ public class CameraScript : MonoBehaviour {
 	public GameObject player;
 	private float startpositionZ;
 	private bool check = false;
+	public Transform posY;
 	// Use this for initialization
 	void Start () {
 		startpositionZ = transform.position.z;
@@ -14,28 +15,57 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
-		if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
+		
+		transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
+		print(player.transform.position.y);
+		if (player.transform.position.y > 0f) {
+			if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
 			
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-1.2f*Time.deltaTime);
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
 
-		}
-		//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-		if (transform.position.z - player.transform.position.z <= 3f){
-			print ("I am close");
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+1.2f*Time.deltaTime);
+			}
+			//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+			if (transform.position.z - player.transform.position.z <= 3.5f) {
+			
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
 
+			}
+			if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
+			}
+			if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
+			}
+			if (Input.GetMouseButtonDown (2)) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
+			}
+			transform.LookAt (player.transform);
+		} if (player.transform.position.y <=0f) {
+			print ("camera new z");
+			if (Vector3.Distance (transform.position, player.transform.position) >= 14f) {
+
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
+
+			}
+			//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+			if (transform.position.z - player.transform.position.z <= 8f) {
+
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
+
+			}
+			if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
+			}
+			if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
+			}
+			if (Input.GetMouseButtonDown (2)) {
+				transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
+			}
+			transform.LookAt (player.transform);
 		}
-		if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z-1f*Time.deltaTime*10f);
-		}
-		if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z+1f*Time.deltaTime*10f);
-		}
-		if (Input.GetMouseButtonDown(2)) {
-			transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
-		}
-		transform.LookAt (player.transform);
+		
+
 	}
 	/*void LateUpdate(){
 		if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
