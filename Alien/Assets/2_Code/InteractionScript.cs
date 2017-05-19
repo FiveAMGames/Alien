@@ -44,6 +44,9 @@ public class InteractionScript : MonoBehaviour {
 				inventory.removeItem (inventory.getItemInHand ());
 				setActive.SetActive (true);
 			}
+			if (whatHappens != null) {
+				whatHappens.SendMessage ("Go");
+			}
 		} else {
 			Debug.Log ("Wrong item!");
 		}

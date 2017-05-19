@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 _moveDirection = Vector3.zero;
 	private CharacterController _controller;
 
+	private bool ground = true;
+
 	public float speed = 1.5F;
 
 	private Vector3 moveDirection = Vector3.zero;
@@ -28,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
 	public void Update()
 	{
 		if (moveable) {
-
-
+			
 
 
 			var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 3.0f;
@@ -93,5 +94,18 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
+
+	void OnCollsionStay(Collision coll){
+		if (coll.gameObject.CompareTag ("Ground")) {
+			ground = true;
+		}
+	}
+
+	void OnCollisionExit(Collision coll){
+		if (coll.gameObject.CompareTag ("Ground")) {
+			ground = false;
+		}
+	}
+
 
 }

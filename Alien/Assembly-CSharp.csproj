@@ -97,7 +97,9 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
      <Compile Include="Assets\bollardScript.cs" />
      <Compile Include="Assets\catAnimation.cs" />
+     <Compile Include="Assets\keyFlat.cs" />
      <Compile Include="Assets\playerRopeAnimationEnd.cs" />
+     <Compile Include="Assets\schrankLockerScript.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
