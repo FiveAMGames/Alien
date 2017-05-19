@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (moveable) {
 
+
+
+
 			var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 3.0f;
 			var z = Input.GetAxis ("Vertical") * Time.deltaTime * 3.0f;
 
@@ -90,4 +93,5 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
+
 }

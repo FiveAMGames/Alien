@@ -125,5 +125,12 @@ public class AnimationCharacter : MonoBehaviour {
 	public void KlavierEnd(){
 		GetComponentInParent<PlayerMovement> ().moveable = true;
 	}
+	public void Rope(){
+		
+		anim.SetBool ("rope", true);
+	}
+	public void RopeOut(){
+		anim.SetBool ("rope", false);
+	}
 		
 }

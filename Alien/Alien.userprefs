@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2_Code\CatFoodScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RopeAnimationTrigger.cs">
     <Files>
-      <File FileName="Assets\2_Code\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\2_Code\PlayerMovement.cs" Line="96" Column="1" />
       <File FileName="Assets\2_Code\MyItem.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\MyInventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\AnimationCharacter.cs" Line="1" Column="1" />
+      <File FileName="Assets\2_Code\AnimationCharacter.cs" Line="134" Column="3" />
       <File FileName="Assets\2_Code\InteractionScript.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\Balloon.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\LookAtCamera.cs" Line="1" Column="1" />
@@ -16,9 +16,11 @@
       <File FileName="Assets\2_Code\rubik.cs" Line="1" Column="1" />
       <File FileName="Assets\KlavierTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\rubikAnimationEnd.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\CatFoodScript.cs" Line="32" Column="5" />
+      <File FileName="Assets\2_Code\CatFoodScript.cs" Line="1" Column="1" />
       <File FileName="Assets\catAnimation.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\RopeAnimationTrigger.cs" Line="32" Column="108" />
+      <File FileName="Assets\playerRopeAnimationEnd.cs" Line="17" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

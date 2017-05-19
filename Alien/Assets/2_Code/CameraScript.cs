@@ -17,7 +17,7 @@ public class CameraScript : MonoBehaviour {
 	void Update () {
 		
 		transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
-		print(player.transform.position.y);
+		//print(player.transform.position.y);
 		if (player.transform.position.y > 0f) {
 			if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
 			

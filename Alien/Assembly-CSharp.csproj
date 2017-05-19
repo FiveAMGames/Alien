@@ -76,6 +76,7 @@
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
      <Compile Include="Assets\CatFoodTriggerScript.cs" />
      <Compile Include="Assets\KlavierTrigger.cs" />
+     <Compile Include="Assets\RopeAnimationTrigger.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\HSVChangedEvent.cs" />
@@ -94,7 +95,9 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\bollardScript.cs" />
      <Compile Include="Assets\catAnimation.cs" />
+     <Compile Include="Assets\playerRopeAnimationEnd.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

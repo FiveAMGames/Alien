@@ -6,6 +6,8 @@ public class InteractionScript : MonoBehaviour {
 
 	public string nameOfInteractableObject;
 	public GameObject destroyParticles;
+	public GameObject whatHappens;
+	public GameObject setActive;
 	float dist = 0f;
 
 	MyInventory inventory;
@@ -25,15 +27,23 @@ public class InteractionScript : MonoBehaviour {
 		Debug.Log ("Yay! Interaction!!!");
 		if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
 			//inventory.removeItem (inventory.getItemInHand ());
-			if (destroyParticles != null) {
+			/*if (destroyParticles != null) {
 				var expl = Instantiate (destroyParticles, transform.position, Quaternion.identity);
 				Destroy (inventory.getItemInHand ().gameObject);
 
 				inventory.removeItem (inventory.getItemInHand ());
 				Destroy (this.gameObject);
 				Destroy (expl, 3);
-			}
+			}*/
 			Debug.Log ("Boom");
+
+			if (setActive != null) {
+				
+				Destroy (inventory.getItemInHand ().gameObject);
+
+				inventory.removeItem (inventory.getItemInHand ());
+				setActive.SetActive (true);
+			}
 		} else {
 			Debug.Log ("Wrong item!");
 		}
