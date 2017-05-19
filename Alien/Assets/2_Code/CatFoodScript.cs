@@ -26,9 +26,10 @@ public class CatFoodScript : MonoBehaviour {
 				GameObject.Find ("BaloonSystem").SendMessage ("CatFoodBaloon");
 				Destroy (gameObject);
 
-			} else
+			} else {
 				
 				Destroy (this);
+			}
 		}
 	}
 }
