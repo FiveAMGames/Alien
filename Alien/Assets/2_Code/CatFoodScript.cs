@@ -27,8 +27,10 @@ public class CatFoodScript : MonoBehaviour {
 				Destroy (gameObject);
 
 			} else {
-				
-				Destroy (this);
+				if (GameObject.Find ("Rubik").GetComponent<rubik> ().GetComponentInChildren<Animator> ().GetBool ("InMatthew")) {
+					GetComponent<MyItem> ().matthewProperty = false;
+					Destroy (this);
+				}
 			}
 		}
 	}
