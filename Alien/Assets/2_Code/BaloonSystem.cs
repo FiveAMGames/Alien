@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaloonSystem : MonoBehaviour {
 
 	public GameObject catFoodBaloon;
+	public GameObject lollipopBaloon;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,5 +17,8 @@ public class BaloonSystem : MonoBehaviour {
 	}
 	public void CatFoodBaloon(){
 		catFoodBaloon.SetActive (true);
+	}
+	public void MatthewLollipop(){
+		lollipopBaloon.SetActive (true);
 	}
 }

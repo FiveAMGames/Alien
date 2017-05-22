@@ -6,6 +6,9 @@ public class KlavierTrigger : MonoBehaviour {
 	private MyInventory inventory;
 	public Transform klavierPlace;
 	public Transform placeToDrop;
+
+
+	public GameObject bubblePiano;
 	// Use this for initialization
 	void Start () {
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
@@ -31,6 +34,8 @@ public class KlavierTrigger : MonoBehaviour {
 
 				coll.gameObject.transform.position = klavierPlace.position;
 				coll.gameObject.transform.rotation = klavierPlace.rotation;
+
+				bubblePiano.SetActive (true);
 
 				if (inventory._inMatthew != null) {
 					inventory._inMatthew.transform.position = placeToDrop.position;

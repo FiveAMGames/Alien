@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class catAnimation : MonoBehaviour {
 
+	public GameObject bubbleLollipop; 
 	public GameObject catAnim;
 	// Use this for initialization
 	void Start () {
@@ -18,5 +19,6 @@ public class catAnimation : MonoBehaviour {
 		catAnim.GetComponent<Animator> ().SetBool ("Walk", false);
 		GetComponent<Animator> ().enabled = false;
 		GetComponent<MyItem> ().matthewProperty = false;
+		bubbleLollipop.SetActive (true);
 	}
 }

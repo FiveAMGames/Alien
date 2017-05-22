@@ -95,6 +95,7 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\babyLollipopScript.cs" />
      <Compile Include="Assets\bollardScript.cs" />
      <Compile Include="Assets\catAnimation.cs" />
      <Compile Include="Assets\keyFlat.cs" />

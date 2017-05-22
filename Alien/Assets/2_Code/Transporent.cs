@@ -9,7 +9,7 @@ public class Transporent : MonoBehaviour {
 
 	public float distanceZForOpacity = 0.0f;
 
-
+	public Material materialTransp;
 	public float duraction = 4.0f;
 	Material startColor;
 	Material material;
@@ -48,12 +48,13 @@ public class Transporent : MonoBehaviour {
 		distToPlayer = this.transform.position - player.transform.position;
 
 		//float lerp = Mathf.PingPong (Time.time, duraction) / duraction;
-		if (transform.position.z > player.transform.position.z + distanceZForOpacity && distToPlayer.magnitude <  2f ) {
+		if (transform.position.z > player.transform.position.z + distanceZForOpacity) {
 		//	GetComponent<Renderer> ().material.color = new Color (1f, 1f, 1f, alphaNull);
 
 			if (!outOfSprites) {
 
-				if (material.color.a > 0.5f) {
+				if (material.color.a > 0.2f) {
+					materialTransp.SetFloat ("_OutlineSize", 0f);
 					GetComponent<Renderer> ().material.color = new Color (startColor.color.r, startColor.color.g, startColor.color.b, Mathf.Lerp (alphaStart, material.color.a - 0.01f, duraction));
 
 				}
@@ -63,7 +64,8 @@ public class Transporent : MonoBehaviour {
 				foreach (Renderer child in children) {
 					
 					Material mat = child.material;
-					if (mat.color.a > 0.5f) {
+					if (mat.color.a > 0.2f) {
+						
 						mat.color = new Color (mat.color.r, mat.color.r, mat.color.b, Mathf.Lerp (alphaStart, material.color.a - 0.01f, duraction));
 					}
 					//GetComponentInChildren<Renderer> ().material.color = new Color (GetComponentInChildren<Renderer> ().material.color.r, GetComponentInChildren<Renderer> ().material.color.g, GetComponentInChildren<Renderer> ().material.color.b, Mathf.Lerp (alphaStart, alphaNull, duraction));

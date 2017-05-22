@@ -8,6 +8,7 @@ public class CatFoodTriggerScript : MonoBehaviour {
 	public GameObject animCat;
 	public GameObject keyFlat;
 	public GameObject keyTrigger;
+	public GameObject bubbleHunger;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,6 +28,7 @@ public class CatFoodTriggerScript : MonoBehaviour {
 				keyFlat.GetComponent<BoxCollider> ().isTrigger = false;
 				keyFlat.GetComponent<Rigidbody> ().isKinematic = false;
 				keyTrigger.SetActive (true);
+				Destroy (bubbleHunger);
 			}
 		}
 	}

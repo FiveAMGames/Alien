@@ -42,13 +42,13 @@ public class CameraScript : MonoBehaviour {
 			transform.LookAt (player.transform);
 		} if (player.transform.position.y <=0f) {
 			print ("camera new z");
-			if (Vector3.Distance (transform.position, player.transform.position) >= 14f) {
+			if (Vector3.Distance (transform.position, player.transform.position) >= 10f) {
 
 				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
 
 			}
 			//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-			if (transform.position.z - player.transform.position.z <= 8f) {
+			if (transform.position.z - player.transform.position.z <= 6f) {
 
 				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
 
