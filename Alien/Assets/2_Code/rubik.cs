@@ -25,6 +25,9 @@ public class rubik : MonoBehaviour {
 				RightHand.GetComponentInParent<AnimationCharacter> ().Rubik ();
 				GetComponentInChildren<Animator> ().SetBool ("Mess", true);
 				GetComponent<Rigidbody> ().isKinematic = true;
+				GameObject.Find ("Game").GetComponent<MyInventory> ().stopTaking = true;
+
+
 			}
 		}
 	}
@@ -39,14 +42,17 @@ public class rubik : MonoBehaviour {
 		//transform.rotation = MatthewHand.transform.rotation;
 		transform.SetParent (MatthewHand.transform);
 		GetComponentInChildren<Animator> ().SetBool ("InMatthew", true);
+		GameObject.Find ("Game").GetComponent<MyInventory> ().stopTaking = false;
+
 
 	}
 	public void Drop(){
-		GetComponentInChildren<Animator> ().SetBool ("InMatthew", false);
+		
 		transform.parent = null;
 		transform.position = new Vector3 (transform.position.x, transform.position.y - 1f, transform.position.z);
 		GetComponent<Rigidbody> ().isKinematic = false;
 
+		GetComponentInChildren<Animator> ().SetBool ("InMatthew", false);
 	}
 
 }

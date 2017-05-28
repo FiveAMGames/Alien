@@ -19,6 +19,7 @@ public class MyInventory : MonoBehaviour {
 
 	float timer = 0f;
 
+	public bool stopTaking = false;
 	void Start () {
 		
 
@@ -45,24 +46,26 @@ public class MyInventory : MonoBehaviour {
 	}
 
 	public void addItem (MyItem item){
-		Debug.Log ("Adding an Item in MY Inventory");
-		if (!CanTakeItem ()) {
+		if (!stopTaking) {
+			Debug.Log ("Adding an Item in MY Inventory");
+			if (!CanTakeItem ()) {
 			
-			Debug.Log ("I have no place enymore!");
-		} else {
-			if (canTakeRightHand){
-			GameObject.Find ("Player").GetComponent<SoundScript> ().PlayTakeItemFromWorld ();
-			//takeBolloon.SetActive (true);
-				if (_inHand == null) {
-					_inHand = item;
-					item.transform.position = item.GetComponent<MyItem>().whereToParent.position;
-					item.transform.rotation = item.GetComponent<MyItem>().whereToParent.rotation;
-					item.transform.parent = item.GetComponent<MyItem>().whereToParent;
+				Debug.Log ("I have no place enymore!");
+			} else {
+				if (canTakeRightHand) {
+					GameObject.Find ("Player").GetComponent<SoundScript> ().PlayTakeItemFromWorld ();
+					//takeBolloon.SetActive (true);
+					if (_inHand == null) {
+						_inHand = item;
+						item.transform.position = item.GetComponent<MyItem> ().whereToParent.position;
+						item.transform.rotation = item.GetComponent<MyItem> ().whereToParent.rotation;
+						item.transform.parent = item.GetComponent<MyItem> ().whereToParent;
 
-					item.inInventory = true;
+						item.inInventory = true;
 
-					Debug.Log ("Parenting to hand");
-				} 
+						Debug.Log ("Parenting to hand");
+					} 
+				}
 			}
 		}
 	}
@@ -132,10 +135,10 @@ public class MyInventory : MonoBehaviour {
 			if (canTakeMatthew) {
 				takeMatthew.SetActive (true);  //bubble
 
-				item.transform.parent = matthew;
+				item.transform.parent = item.GetComponent<MyItem>().placeInMatthew;
 				item.GetComponent<Collider> ().isTrigger = true;
-				item.transform.position = matthew.position;
-				item.transform.rotation = matthew.rotation;
+				item.transform.position = item.GetComponent<MyItem>().placeInMatthew.position;
+				item.transform.rotation =item.GetComponent<MyItem>().placeInMatthew.rotation;
 				Debug.Log ("Matthew has " + item.name);
 				_inMatthew = item;
 				item.GetComponent<Rigidbody> ().isKinematic = true;

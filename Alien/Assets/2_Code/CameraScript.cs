@@ -8,63 +8,66 @@ public class CameraScript : MonoBehaviour {
 	private float startpositionZ;
 	private bool check = false;
 	public Transform posY;
+	public bool startCamera = true;
 	// Use this for initialization
 	void Start () {
 		startpositionZ = transform.position.z;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
-		//print(player.transform.position.y);
-		if (player.transform.position.y > 0f) {
-			if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
+		if (!startCamera) {
+			transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
+			//print(player.transform.position.y);
+			if (player.transform.position.y > 0f) {
+				if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
 			
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
 
-			}
-			//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-			if (transform.position.z - player.transform.position.z <= 3.5f) {
+				}
+				//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+				if (transform.position.z - player.transform.position.z <= 3.5f) {
 			
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
 
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
+				}
+				if (Input.GetMouseButtonDown (2)) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
+				}
+				transform.LookAt (player.transform);
 			}
-			if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
-			}
-			if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
-			}
-			if (Input.GetMouseButtonDown (2)) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
-			}
-			transform.LookAt (player.transform);
-		} if (player.transform.position.y <=0f) {
-			print ("camera new z");
-			if (Vector3.Distance (transform.position, player.transform.position) >= 10f) {
+			if (player.transform.position.y <= 0f) {
+			
+				if (Vector3.Distance (transform.position, player.transform.position) >= 10f) {
 
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1.2f * Time.deltaTime);
 
-			}
-			//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-			if (transform.position.z - player.transform.position.z <= 6f) {
+				}
+				//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
+				if (transform.position.z - player.transform.position.z <= 6f) {
 
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
 
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
+				}
+				if (Input.GetMouseButtonDown (2)) {
+					transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
+				}
+				transform.LookAt (player.transform);
 			}
-			if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z - 1f * Time.deltaTime * 10f);
-			}
-			if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1f * Time.deltaTime * 10f);
-			}
-			if (Input.GetMouseButtonDown (2)) {
-				transform.position = new Vector3 (player.transform.position.x, transform.position.y, startpositionZ);
-			}
-			transform.LookAt (player.transform);
 		}
-		
 
 	}
 	/*void LateUpdate(){

@@ -8,8 +8,10 @@ public class Transporent : MonoBehaviour {
 	float alphaStart = 1.0f;
 
 	public float distanceZForOpacity = 0.0f;
+	public float alphaValue = 0f;
 
-	public Material materialTransp;
+
+
 	public float duraction = 4.0f;
 	Material startColor;
 	Material material;
@@ -52,19 +54,20 @@ public class Transporent : MonoBehaviour {
 		//	GetComponent<Renderer> ().material.color = new Color (1f, 1f, 1f, alphaNull);
 
 			if (!outOfSprites) {
-
-				if (material.color.a > 0.2f) {
-					materialTransp.SetFloat ("_OutlineSize", 0f);
+				
+				if (material.color.a > alphaValue) {
+					
 					GetComponent<Renderer> ().material.color = new Color (startColor.color.r, startColor.color.g, startColor.color.b, Mathf.Lerp (alphaStart, material.color.a - 0.01f, duraction));
 
 				}
+
 				//this.gameObject.layer = 0;
 			} else {
 				print ("Start to change opacity");
 				foreach (Renderer child in children) {
 					
 					Material mat = child.material;
-					if (mat.color.a > 0.2f) {
+					if (mat.color.a > alphaValue) {
 						
 						mat.color = new Color (mat.color.r, mat.color.r, mat.color.b, Mathf.Lerp (alphaStart, material.color.a - 0.01f, duraction));
 					}

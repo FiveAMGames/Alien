@@ -3,7 +3,7 @@ guid: 28ecf933985134e49af7ff8a04032f3d
 timeCreated: 1494788013
 licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     100002: Bip001
@@ -176,7 +176,7 @@ ModelImporter:
     4300004: Cylinder002
     4300006: Cylinder001
     4300008: Tube003
-    7400000: BedLoopAgain
+    7400000: BedLoopStart2
     9500000: //RootNode
     13700000: humanBody
   materials:
@@ -201,12 +201,13 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BedLoopAgain
+      name: BedLoopStart2
       takeName: Take 001
-      firstFrame: 200
-      lastFrame: 1050
+      firstFrame: 0
+      lastFrame: 350
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -479,7 +480,10 @@ ModelImporter:
     globalScale: 0.1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -495,6 +499,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

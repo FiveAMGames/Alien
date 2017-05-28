@@ -29,6 +29,10 @@ public class CatFoodScript : MonoBehaviour {
 			} else {
 				if (GameObject.Find ("Rubik").GetComponent<rubik> ().GetComponentInChildren<Animator> ().GetBool ("InMatthew")) {
 					GetComponent<MyItem> ().matthewProperty = false;
+					GetComponent<MyItem> ().AddCatFood ();
+
+
+
 					Destroy (this);
 				}
 			}

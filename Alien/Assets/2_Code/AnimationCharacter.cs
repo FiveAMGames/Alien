@@ -8,7 +8,7 @@ public class AnimationCharacter : MonoBehaviour {
 	MyInventory inventory;
 	public bool inIdle = false;
 	public bool inWalk = false;
-
+	public GameObject CameraVoiceOver;
 
 	bool onTimer = false;
 
@@ -20,6 +20,8 @@ public class AnimationCharacter : MonoBehaviour {
 	void Start () {
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		anim = GetComponentInChildren<Animator> ();
+
+
 	}
 	
 	// Update is called once per frame
@@ -131,6 +133,15 @@ public class AnimationCharacter : MonoBehaviour {
 	}
 	public void RopeOut(){
 		anim.SetBool ("rope", false);
+	}
+
+
+	public void StartLevel(){
+		CameraVoiceOver.GetComponent<VoiceOverScript> ().StartLevel ();
+	}
+	public void Movable(){
+		GetComponentInParent<PlayerMovement> ().moveable = true;
+		CameraVoiceOver.GetComponent<CameraScript> ().startCamera = false;
 	}
 		
 }

@@ -13,6 +13,8 @@ using UnityEngine;
 public class MyItem : MonoBehaviour
 {
 
+
+
 	public Transform whereToParent;
 	
 	public GameObject positionForDragStart;
@@ -40,6 +42,7 @@ public class MyItem : MonoBehaviour
 
 	private bool rotationInHand = false;
 
+	public Transform placeInMatthew; 
 
 	private bool mouseOutOfTheRange = false;
 	float dist;
@@ -76,6 +79,7 @@ public class MyItem : MonoBehaviour
 		}*/
 		
 		if (!matthewProperty) {
+			
 			dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
 
 
@@ -159,8 +163,8 @@ public class MyItem : MonoBehaviour
 
 		Vector3 playerPos = GameObject.Find ("Player").transform.position;
 		Vector3 dplayer = joint.transform.position - playerPos;    //vector from player to object position
-		if (dplayer.magnitude > 1.5f) {     						//TODO  or not todo
-			joint.transform.position = playerPos + dplayer.normalized * 1.5f;
+		if (dplayer.magnitude > 1.7f) {     						//TODO  or not todo
+			joint.transform.position = playerPos + dplayer.normalized * 1.7f;
 
 			mouseOutOfTheRange = true;
 			//normalized = norm length to one; 
@@ -235,7 +239,7 @@ public class MyItem : MonoBehaviour
 	void OnMouseDown ()
 	{
 		if (!matthewProperty) {
-
+			print ("Yeap, i see item script");
 			if (onDragging) {
 
 				if (interactionObject == null) {
@@ -259,12 +263,13 @@ public class MyItem : MonoBehaviour
 			if (dist<3f){
 				
 			if (!inInventory ) {  
-				
-				//place in inventory
-				GetComponent<Rigidbody> ().isKinematic = true;
-				inventory.addItem (this);
-					GetComponentInChildren<InHandColliderScript> ().inHand = true;
-					GetComponentInChildren<SphereCollider> ().enabled = true;
+					if (!inventory.stopTaking) {
+						//place in inventory
+						GetComponent<Rigidbody> ().isKinematic = true;
+						inventory.addItem (this);
+						GetComponentInChildren<InHandColliderScript> ().inHand = true;
+						GetComponentInChildren<SphereCollider> ().enabled = true;
+					}
 			} else {  
 					//if it's already in inventory
 					if (!onDragging) {
@@ -302,7 +307,12 @@ public class MyItem : MonoBehaviour
 
 	}
 
-
+	public void AddCatFood(){
+		GetComponent<Rigidbody> ().isKinematic = true;
+		inventory.addItem (this);
+		GetComponentInChildren<InHandColliderScript> ().inHand = true;
+		GetComponentInChildren<SphereCollider> ().enabled = true;
+	}
 
 
 	void OnTriggerEnter(Collider coll){

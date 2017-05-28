@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_0;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -49,14 +49,18 @@
      <Compile Include="Assets\2_Code\AlienInBed.cs" />
      <Compile Include="Assets\2_Code\Animation.cs" />
      <Compile Include="Assets\2_Code\AnimationCharacter.cs" />
+     <Compile Include="Assets\2_Code\BabyTriggerFood.cs" />
      <Compile Include="Assets\2_Code\Balloon.cs" />
      <Compile Include="Assets\2_Code\BaloonSystem.cs" />
      <Compile Include="Assets\2_Code\BowlPlace.cs" />
      <Compile Include="Assets\2_Code\CameraScript.cs" />
      <Compile Include="Assets\2_Code\CatFoodScript.cs" />
+     <Compile Include="Assets\2_Code\CatFoodTriggerScript.cs" />
      <Compile Include="Assets\2_Code\FridgeButton.cs" />
      <Compile Include="Assets\2_Code\InHandColliderScript.cs" />
      <Compile Include="Assets\2_Code\InteractionScript.cs" />
+     <Compile Include="Assets\2_Code\KlavierTrigger.cs" />
+     <Compile Include="Assets\2_Code\LollipopBowlTriggerScript.cs" />
      <Compile Include="Assets\2_Code\LookAtCamera.cs" />
      <Compile Include="Assets\2_Code\LookAtTarget.cs" />
      <Compile Include="Assets\2_Code\MatthewTrigger.cs" />
@@ -65,18 +69,26 @@
      <Compile Include="Assets\2_Code\OutOfSprites.cs" />
      <Compile Include="Assets\2_Code\PillowScript.cs" />
      <Compile Include="Assets\2_Code\PlayerMovement.cs" />
+     <Compile Include="Assets\2_Code\RopeAnimationTrigger.cs" />
      <Compile Include="Assets\2_Code\SoundScript.cs" />
      <Compile Include="Assets\2_Code\SpritesShadowsScript.cs" />
      <Compile Include="Assets\2_Code\Transporent.cs" />
+     <Compile Include="Assets\2_Code\babyLollipopScript.cs" />
+     <Compile Include="Assets\2_Code\bollardScript.cs" />
+     <Compile Include="Assets\2_Code\catAnimation.cs" />
      <Compile Include="Assets\2_Code\key.cs" />
+     <Compile Include="Assets\2_Code\keyFlat.cs" />
      <Compile Include="Assets\2_Code\keyScript.cs" />
      <Compile Include="Assets\2_Code\lockerScript.cs" />
+     <Compile Include="Assets\2_Code\lollipop.cs" />
+     <Compile Include="Assets\2_Code\playerRopeAnimationEnd.cs" />
      <Compile Include="Assets\2_Code\rubik.cs" />
      <Compile Include="Assets\2_Code\rubikAnimationEnd.cs" />
+     <Compile Include="Assets\2_Code\schrankLockerScript.cs" />
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
-     <Compile Include="Assets\CatFoodTriggerScript.cs" />
-     <Compile Include="Assets\KlavierTrigger.cs" />
-     <Compile Include="Assets\RopeAnimationTrigger.cs" />
+     <Compile Include="Assets\CursorTextures.cs" />
+     <Compile Include="Assets\SoundBedScene.cs" />
+     <Compile Include="Assets\VoiceOverScript.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\HSVChangedEvent.cs" />
@@ -95,12 +107,7 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
-     <Compile Include="Assets\babyLollipopScript.cs" />
-     <Compile Include="Assets\bollardScript.cs" />
-     <Compile Include="Assets\catAnimation.cs" />
-     <Compile Include="Assets\keyFlat.cs" />
-     <Compile Include="Assets\playerRopeAnimationEnd.cs" />
-     <Compile Include="Assets\schrankLockerScript.cs" />
+     <Compile Include="Assets\fadeSprite.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />
