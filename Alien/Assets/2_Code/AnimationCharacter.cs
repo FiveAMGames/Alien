@@ -10,10 +10,15 @@ public class AnimationCharacter : MonoBehaviour {
 	public bool inWalk = false;
 	public GameObject CameraVoiceOver;
 
+	private float timer = 0f;
+	private int matthewAnimClips = 0;
+
 	bool onTimer = false;
 
-	float timer = 0f;
+	private float timerAnim = 0f;
 
+	public AnimationClip[] matthewAnimations;
+	public AnimatorOverrideController animatorOverrideController;
 
 	public bool onWalking = false;
 	// Use this for initialization
@@ -21,12 +26,14 @@ public class AnimationCharacter : MonoBehaviour {
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		anim = GetComponentInChildren<Animator> ();
 
-
+		//animatorOverrideController = new AnimatorOverrideController (anim.runtimeAnimatorController);
+		anim.runtimeAnimatorController = animatorOverrideController;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+		timerAnim += Time.deltaTime;
 
 		if (inventory._inHand != null) {
 			anim.SetBool ("RightHand", true);
@@ -42,6 +49,8 @@ public class AnimationCharacter : MonoBehaviour {
 		}
 
 
+
+	
 
 
 
@@ -85,6 +94,25 @@ public class AnimationCharacter : MonoBehaviour {
 
 
 	}
+
+
+	public void ChangeMatthew(){
+		
+	/*		print ("Change Matthew");
+			//int rand = Random.Range (0, 4);
+		if (matthewAnimClips < 3) {
+			matthewAnimClips += 1;
+				
+			//print (rand);
+		} else {
+			matthewAnimClips = 0;
+		}
+		animatorOverrideController ["matthewWalkFree"] = matthewAnimations [matthewAnimClips];*/
+
+	}
+
+
+
 
 	public void Walk(){
 
@@ -143,10 +171,14 @@ public class AnimationCharacter : MonoBehaviour {
 	public void Movable(){
 		GetComponentInParent<PlayerMovement> ().moveable = true;
 		CameraVoiceOver.GetComponent<CameraScript> ().startCamera = false;
+		anim.SetTrigger ("IntroOut");
 	}
 
 	public void KlavierEndAnimation(){
 		
 	}
 		
+
+
+
 }

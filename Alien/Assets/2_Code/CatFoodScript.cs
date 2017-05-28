@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CatFoodScript : MonoBehaviour {
-	
+
+	private bool taken = false;
 	private float dist;
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class CatFoodScript : MonoBehaviour {
 				Destroy (gameObject);
 
 			} else {
-				if (GameObject.Find ("Rubik").GetComponent<rubik> ().GetComponentInChildren<Animator> ().GetBool ("InMatthew")) {
+				if (GameObject.Find ("Rubik").GetComponentInChildren<Animator> ().GetBool ("InMatthew")) {
 					GetComponent<MyItem> ().matthewProperty = false;
 					GetComponent<MyItem> ().AddCatFood ();
 
