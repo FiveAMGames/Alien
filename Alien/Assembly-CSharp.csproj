@@ -107,7 +107,9 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\catVoice.cs" />
      <Compile Include="Assets\fadeSprite.cs" />
+     <Compile Include="Assets\greenAlien.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

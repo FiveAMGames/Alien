@@ -17,4 +17,7 @@ public class keyFlat : MonoBehaviour {
 		
 		door.GetComponent<Animator> ().SetTrigger ("Open");
 	}
+
+
+
 }

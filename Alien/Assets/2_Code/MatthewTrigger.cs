@@ -7,7 +7,7 @@ public class MatthewTrigger : MonoBehaviour {
 	public MyInventory inventory;
 	 
 	public GameObject relatedObject;
-
+	public bool keyFlat = false;
 
 	void Start () {
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory>();
@@ -24,6 +24,9 @@ public class MatthewTrigger : MonoBehaviour {
 			inventory.MatthewAddItem (relatedObject);
 			if (inventory.canTakeMatthew) {
 				coll.GetComponent<SoundScript> ().PlayMatthewTake ();
+				if (keyFlat) {
+					Camera.main.GetComponent<VoiceOverScript> ().MatthewTakesKey ();
+				}
 				Destroy (gameObject);
 			}
 		}

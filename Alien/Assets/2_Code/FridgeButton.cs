@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FridgeButton : MonoBehaviour {
 
+	private bool count = false;
 	public Transform placeForBowl;
 	public GameObject catFoodPrefab;
-	private int count = 0;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -22,10 +23,11 @@ public class FridgeButton : MonoBehaviour {
 			
 			if (!placeForBowl.GetComponent<BowlPlace> ().placeIsOccupied) {
 				Instantiate (catFoodPrefab, placeForBowl);
-
-
+				if (!count) {
+					Camera.main.GetComponent<VoiceOverScript> ().CatDeservesSomeFood ();
+					count = true;
+				}
 			}
-
 
 		}
 	}

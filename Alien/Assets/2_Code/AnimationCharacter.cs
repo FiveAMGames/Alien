@@ -126,6 +126,7 @@ public class AnimationCharacter : MonoBehaviour {
 	}
 	public void KlavierEnd(){
 		GetComponentInParent<PlayerMovement> ().moveable = true;
+		anim.SetBool ("Klavier", false);
 	}
 	public void Rope(){
 		
@@ -142,6 +143,10 @@ public class AnimationCharacter : MonoBehaviour {
 	public void Movable(){
 		GetComponentInParent<PlayerMovement> ().moveable = true;
 		CameraVoiceOver.GetComponent<CameraScript> ().startCamera = false;
+	}
+
+	public void KlavierEndAnimation(){
+		
 	}
 		
 }

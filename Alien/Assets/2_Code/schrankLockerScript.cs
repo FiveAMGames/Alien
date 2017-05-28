@@ -16,6 +16,7 @@ public class schrankLockerScript : MonoBehaviour {
 	}
 	public void Go(){
 		keyAnim.SetActive (true);
+		Camera.main.GetComponent<VoiceOverScript> ().FinallyICanGetOut ();
 	}
 
 }

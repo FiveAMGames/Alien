@@ -40,7 +40,7 @@ public class BabyTriggerFood : MonoBehaviour {
 				//lollipop.GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.None;
 				//Slollipop.GetComponent<Collider> ().isTrigger = true;
 				newTriggerMatthew.GetComponent<Collider> ().enabled = true;
-
+				Camera.main.GetComponent<VoiceOverScript> ().BabyDoesntWantLollipopAnymore ();
 				Destroy (bubbleFoodWish);
 				Destroy (gameObject);
 			}

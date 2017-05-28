@@ -8,7 +8,7 @@ public class KlavierTrigger : MonoBehaviour {
 	public Transform placeToDrop;
 
 	public AudioClip[] clips;
-	private int rand;
+	private int rand;  //random
 	public GameObject bubblePiano;
 	// Use this for initialization
 	void Start () {
@@ -30,7 +30,7 @@ public class KlavierTrigger : MonoBehaviour {
 				coll.GetComponentInChildren<Animator> ().SetBool ("WalkTwo", false);
 				coll.GetComponentInChildren<Animator> ().SetBool ("IdleTwoLegs", true);
 				coll.GetComponentInChildren<Animator> ().SetBool ("LeftHand", false);
-				coll.GetComponentInChildren<Animator> ().SetTrigger ("Klavier");
+				coll.GetComponentInChildren<Animator> ().SetBool ("Klavier", true);
 
 
 				coll.gameObject.transform.position = klavierPlace.position;
@@ -45,7 +45,8 @@ public class KlavierTrigger : MonoBehaviour {
 
 
 				GetComponent<AudioSource> ().clip = clips [rand];
-				GetComponent<AudioSource> ().PlayDelayed (1.5f);
+				//Camera.main.GetComponent<VoiceOverScript> ().MatthewPlaysSoWell ();
+				GetComponent<AudioSource> ().PlayDelayed (0.5f);
 
 				if (inventory._inMatthew != null) {
 					inventory._inMatthew.transform.position = placeToDrop.position;
@@ -57,4 +58,5 @@ public class KlavierTrigger : MonoBehaviour {
 			}
 		}
 	}
+
 }

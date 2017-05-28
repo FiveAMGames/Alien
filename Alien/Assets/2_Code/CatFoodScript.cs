@@ -21,9 +21,10 @@ public class CatFoodScript : MonoBehaviour {
 		
 			if (dist < 2f) {
 				
-			if (!GameObject.Find ("Rubik").GetComponent<rubik> ().GetComponentInChildren<Animator> ().GetBool ("InMatthew") && !GameObject.Find ("Rubik").GetComponent<rubik> ().GetComponentInChildren<Animator> ().GetBool ("Mess")) {
+			if (!GameObject.Find ("Rubik").GetComponent<rubik> ().rubikOn) {
 					
 				GameObject.Find ("BaloonSystem").SendMessage ("CatFoodBaloon");
+				Camera.main.GetComponent<VoiceOverScript> ().CatFoodBuah ();
 				Destroy (gameObject);
 
 			} else {
@@ -33,7 +34,7 @@ public class CatFoodScript : MonoBehaviour {
 
 
 
-					Destroy (this);
+					Destroy (GetComponent<CatFoodScript>());
 				}
 			}
 		}

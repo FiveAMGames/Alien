@@ -18,6 +18,7 @@ public class babyLollipopScript : MonoBehaviour {
 		if (coll.CompareTag ("Player") && lollipopByBaby) {
 			GetComponent<Animator> ().SetTrigger ("Matthew");
 			GameObject.Find ("BaloonSystem").GetComponent<BaloonSystem> ().MatthewLollipop ();
+			Camera.main.GetComponent<VoiceOverScript> ().MatthewGetOffLollipop ();
 		}
 	}
 }
