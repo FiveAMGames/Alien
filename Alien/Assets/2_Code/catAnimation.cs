@@ -28,6 +28,7 @@ public class catAnimation : MonoBehaviour {
 		GetComponent<Animator> ().enabled = false;
 		//GetComponent<MyItem> ().matthewProperty = false;
 		bubbleLollipop.SetActive (true);
+		Destroy (DontTouchBubble);
 	}
 
 	public void Go(){
@@ -47,14 +48,14 @@ public class catAnimation : MonoBehaviour {
 		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
 		if (dist < 3f) {
 
-			if (bubbleLollipop.activeSelf) {
+			if (bubbleLollipop!= null && bubbleLollipop.activeSelf) {
 				Camera.main.GetComponent<VoiceOverScript> ().CatYouWillEat ();
 			} else {
 
 				if (!catAnim.GetComponent<Animator> ().GetBool("Walk")){
 				catAnim.GetComponent<Animator> ().SetTrigger ("DontTouch");
 
-				DontTouchBubble.SetActive (true);
+					if (DontTouchBubble!=null){DontTouchBubble.SetActive (true);}
 
 				if (catAnim.GetComponent<AudioSource> ().clip == miau1) {
 					catAnim.GetComponent<AudioSource> ().clip = miau2;

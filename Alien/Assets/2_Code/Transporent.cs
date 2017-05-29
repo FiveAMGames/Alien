@@ -11,6 +11,7 @@ public class Transporent : MonoBehaviour {
 	public float alphaValue = 0f;
 
 
+	private List<GameObject> thigsOnBed = new List<GameObject>();
 
 	public float duraction = 4.0f;
 	Material startColor;
@@ -47,6 +48,12 @@ public class Transporent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+
+
+
 		distToPlayer = this.transform.position - player.transform.position;
 
 		//float lerp = Mathf.PingPong (Time.time, duraction) / duraction;
@@ -58,7 +65,14 @@ public class Transporent : MonoBehaviour {
 				if (material.color.a > alphaValue) {
 					
 					GetComponent<Renderer> ().material.color = new Color (startColor.color.r, startColor.color.g, startColor.color.b, Mathf.Lerp (alphaStart, material.color.a - 0.01f, duraction));
-
+					if (thigsOnBed.Count > 0) {
+						foreach (GameObject item in thigsOnBed) {
+							if (item.GetComponent<Rigidbody> () != null) {
+								//item.GetComponent<Rigidbody> ().useGravity = false;
+								item.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+							}
+						}
+					}
 				}
 
 				//this.gameObject.layer = 0;
@@ -93,16 +107,48 @@ public class Transporent : MonoBehaviour {
 					}
 
 					//GetComponentInChildren<Renderer> ().material.color = new Color (GetComponentInChildren<Renderer> ().material.color.r, GetComponentInChildren<Renderer> ().material.color.g, GetComponentInChildren<Renderer> ().material.color.b, Mathf.Lerp (alphaNull, alphaStart, duraction));
+
 					child.GetComponent<Collider> ().enabled = true;
+
 				}
 			}
 			GetComponent<Collider> ().enabled = true;
 			//this.gameObject.layer = 8;
 			transparent = false;
+			if (thigsOnBed.Count > 0) {
+				foreach (GameObject item in thigsOnBed) {
+					if (item.GetComponent<Rigidbody> () != null) {
+						//item.GetComponent<Rigidbody> ().useGravity = true;
+						item.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+					}
+				}
+			}
 		}
 	}
 
+	void OnCollisionEnter(Collision coll){
+		print ("oncollisionworks");
+		if (coll.gameObject.layer == 9) {
 
+			for (int i = 0; i < thigsOnBed.Count; i++) {
+				if (coll.gameObject == thigsOnBed [i]) {
+					return;
+				}
+			}
+			thigsOnBed.Add (coll.gameObject);
+		}
+	}
 
+	void OnCollisionExit(Collision coll){
+		if (coll.gameObject.layer == 9) {
+			for (int i = 0; i < thigsOnBed.Count; i++) {
+				if (coll.gameObject == thigsOnBed [i]) {
+					thigsOnBed.Remove (coll.gameObject);
+					break;
+				}
+				
+			}
+		}
+	}
 
 }

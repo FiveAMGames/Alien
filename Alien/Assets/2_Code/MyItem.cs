@@ -15,6 +15,8 @@ public class MyItem : MonoBehaviour
 
 
 
+	public Vector3 originalSize;
+
 	public Transform whereToParent;
 	
 	public GameObject positionForDragStart;
@@ -50,6 +52,7 @@ public class MyItem : MonoBehaviour
 
 	public void Awake ()
 	{
+		originalSize = transform.localScale;
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		//sets tag of gameobject
 		//gameObject.tag = "Item";
@@ -273,6 +276,7 @@ public class MyItem : MonoBehaviour
 			} else {  
 					//if it's already in inventory
 					if (!onDragging) {
+						GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 						GetComponentInChildren<InHandColliderScript> ().inHand = false;
 						GetComponentInChildren<SphereCollider> ().enabled = false;
 						GetComponentInParent<SoundScript> ().PlayTakeItemFromInventory ();//if not on drag - drag it

@@ -107,6 +107,8 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKRotateObject.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonDemoController.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
+     <Compile Include="Assets\bed.cs" />
+     <Compile Include="Assets\bedTransparensy.cs" />
      <Compile Include="Assets\catVoice.cs" />
      <Compile Include="Assets\fadeSprite.cs" />
      <Compile Include="Assets\greenAlien.cs" />

@@ -27,7 +27,7 @@ public class CameraScript : MonoBehaviour {
 
 				}
 				//if (Vector3.Distance (transform.position, player.transform.position) <= 3f) {
-				if (transform.position.z - player.transform.position.z <= 3.5f) {
+				if (transform.position.z - player.transform.position.z < 5f) {
 			
 					transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z + 1.2f * Time.deltaTime);
 

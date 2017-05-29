@@ -62,6 +62,8 @@ public class MyInventory : MonoBehaviour {
 						item.transform.parent = item.GetComponent<MyItem> ().whereToParent;
 
 						item.inInventory = true;
+						item.transform.localScale = item.originalSize;
+
 
 						Debug.Log ("Parenting to hand");
 					} 
