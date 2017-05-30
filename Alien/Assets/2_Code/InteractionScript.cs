@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractionScript : MonoBehaviour {
 
 	public string nameOfInteractableObject;
-	public GameObject destroyParticles;
+
 	public GameObject whatHappens;
 	public GameObject setActive;
 	float dist = 0f;
@@ -29,15 +29,7 @@ public class InteractionScript : MonoBehaviour {
 		if (greenAlien) {
 		
 			if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 6f) {   //TODO doesn't work properly. NullReference O_o
-				//inventory.removeItem (inventory.getItemInHand ());
-				/*if (destroyParticles != null) {
-				var expl = Instantiate (destroyParticles, transform.position, Quaternion.identity);
-				Destroy (inventory.getItemInHand ().gameObject);
-
-				inventory.removeItem (inventory.getItemInHand ());
-				Destroy (this.gameObject);
-				Destroy (expl, 3);
-			}*/
+				
 				Debug.Log ("Boom");
 
 				if (setActive != null) {
@@ -59,15 +51,7 @@ public class InteractionScript : MonoBehaviour {
 		
 		}
 		else if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
-			//inventory.removeItem (inventory.getItemInHand ());
-			/*if (destroyParticles != null) {
-				var expl = Instantiate (destroyParticles, transform.position, Quaternion.identity);
-				Destroy (inventory.getItemInHand ().gameObject);
-
-				inventory.removeItem (inventory.getItemInHand ());
-				Destroy (this.gameObject);
-				Destroy (expl, 3);
-			}*/
+			
 			Debug.Log ("Boom");
 
 			if (setActive != null) {

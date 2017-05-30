@@ -62,7 +62,7 @@ public class MyInventory : MonoBehaviour {
 						item.transform.parent = item.GetComponent<MyItem> ().whereToParent;
 
 						item.inInventory = true;
-						item.transform.localScale = item.originalSize;
+
 
 
 						Debug.Log ("Parenting to hand");
@@ -75,6 +75,7 @@ public class MyInventory : MonoBehaviour {
 	public void removeItem(MyItem item){
 		if (item == _inHand) {
 			_inHand = null;
+			item.transform.localScale = item.originalSize;
 		} else if (item == _inLeg) {
 			_inLeg = null;
 			GameObject.Find ("Player").GetComponentInChildren<Animator> ().SetBool ("IdleOnOneLeg", false);

@@ -76,4 +76,12 @@ public class VoiceOverScript : MonoBehaviour {
 		aud.clip = clips [13];
 		aud.Play ();
 	}
+	public void IAmLate(){
+		aud.clip = clips [14];
+		aud.Play ();
+	}
+	public void LadyCast(){
+		aud.clip = clips [15];
+		aud.Play ();
+	}
 }

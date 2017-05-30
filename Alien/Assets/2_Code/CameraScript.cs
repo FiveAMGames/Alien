@@ -9,15 +9,30 @@ public class CameraScript : MonoBehaviour {
 	private bool check = false;
 	public Transform posY;
 	public bool startCamera = true;
+	public bool cutScene= false;
+	public bool fromCutScene = false;
 	// Use this for initialization
-	void Start () {
+	void Start () { 
 		startpositionZ = transform.position.z;
-
+		player = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!startCamera) {
+		if (cutScene && transform.position.x > -12f && !fromCutScene ) {
+			transform.position = new Vector3 (transform.position.x - 2f * Time.deltaTime, transform.position.y, transform.position.z);
+		}
+
+		if (fromCutScene) {
+			if (transform.position.x < player.transform.position.x) {
+				transform.position = new Vector3 (transform.position.x + 2f * Time.deltaTime, transform.position.y, transform.position.z);
+			} else {
+				cutScene = false;
+				fromCutScene = false;
+			}
+		}
+
+		if (!startCamera && !cutScene) {
 			transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
 			//print(player.transform.position.y);
 			if (player.transform.position.y > 0f) {

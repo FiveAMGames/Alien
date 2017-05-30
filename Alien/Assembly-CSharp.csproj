@@ -87,6 +87,7 @@
      <Compile Include="Assets\2_Code\schrankLockerScript.cs" />
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
      <Compile Include="Assets\CursorTextures.cs" />
+     <Compile Include="Assets\LadyAlien.cs" />
      <Compile Include="Assets\SoundBedScene.cs" />
      <Compile Include="Assets\VoiceOverScript.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
@@ -109,9 +110,12 @@
      <Compile Include="Assets\_MK\MKToon\Demo\Scripts\MKToonUISliderValue.cs" />
      <Compile Include="Assets\bed.cs" />
      <Compile Include="Assets\bedTransparensy.cs" />
+     <Compile Include="Assets\castExpolision.cs" />
      <Compile Include="Assets\catVoice.cs" />
      <Compile Include="Assets\fadeSprite.cs" />
      <Compile Include="Assets\greenAlien.cs" />
+     <Compile Include="Assets\loudspeaker.cs" />
+     <Compile Include="Assets\triggerNoSpot.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

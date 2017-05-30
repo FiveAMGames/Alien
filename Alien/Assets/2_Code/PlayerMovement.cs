@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 	//unity update
 	public void Update()
+
 	{
 		if (moveable) {
 			
@@ -41,8 +42,8 @@ public class PlayerMovement : MonoBehaviour
 			//transform.Rotate (0, 0, 0); 
 			//transform.Translate (-x, 0, -z, Space.World);    //Translate ignores collider collisions -> move the code to SimpleMove * speed
 
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
+			moveDirection = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+			moveDirection = transform.TransformDirection (moveDirection);
 			//moveDirection *= speed;
 
 			/*
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
 			if (Input.GetKey ("w")) {
 				//transform.Translate (Vector3.back, speed, 0, 0);
-			_controller.SimpleMove (-Vector3.forward * speed);
+				_controller.SimpleMove (-Vector3.forward * speed);
 
 			}
 			if (Input.GetKey ("s")) {
@@ -92,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
 				GetComponentInChildren<AnimationCharacter> ().onWalking = false;
 
 			}
+		} else {
+			GetComponentInChildren<AnimationCharacter> ().onWalking = false;
 		}
 	}
 
