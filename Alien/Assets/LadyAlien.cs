@@ -17,6 +17,8 @@ public class LadyAlien : MonoBehaviour {
 		float dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
 		if (dist < 4f) {
 			Camera.main.GetComponent<VoiceOverScript> ().LadyCast ();
+
 		}
 	}
+
 }

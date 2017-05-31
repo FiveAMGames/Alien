@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class castExpolision : MonoBehaviour {
 
+	public Transform playersPlaceAfterHammer;
+	public GameObject runAwayPos;
+	public GameObject runAwayAnim;
 	public GameObject gypsum;
+	public GameObject playerAnim;
 	 // Use this for initialization
 	void Start () {
 		
@@ -14,10 +18,24 @@ public class castExpolision : MonoBehaviour {
 	void Update () {
 		
 	}
+	IEnumerator waitSeconds(){
+		GameObject.Find ("Player").transform.position = playersPlaceAfterHammer.position;
+		GameObject.Find ("Player").transform.rotation = playersPlaceAfterHammer.rotation;
+		playerAnim.GetComponent<Animator> ().SetTrigger ("newFriendTrigger");
+		GameObject.Find ("Player").GetComponent<PlayerMovement> ().moveable = false;
+		Camera.main.GetComponent<CameraScript> ().hammerScene = true;
+		runAwayAnim.GetComponent<Animator> ().SetBool ("Go", true);
+		runAwayPos.GetComponent<Animator> ().SetBool ("RunAway", true);
+		yield return new WaitForSeconds (2f);
+		GetComponentInParent<Animator> ().SetBool ("CastBreak", true);
+		Destroy (gameObject);
+	}
 	public void Go(){
 		//StartCoroutine(SplitMesh(true));
 		gypsum.SetActive(true);
-		Destroy (gameObject);
+		GetComponent<Renderer> ().enabled = false;
+		StartCoroutine (waitSeconds ());
+	
 	}
 	public IEnumerator SplitMesh (bool destroy)    {
 

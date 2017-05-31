@@ -52,7 +52,7 @@ public class MyItem : MonoBehaviour
 
 	public void Awake ()
 	{
-		originalSize = transform.localScale;
+		originalSize = transform.lossyScale;
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
 		//sets tag of gameobject
 		//gameObject.tag = "Item";

@@ -50,8 +50,9 @@ public class KlavierTrigger : MonoBehaviour {
 
 				if (inventory._inMatthew != null) {
 					inventory._inMatthew.transform.position = placeToDrop.position;
-					inventory._inMatthew.GetComponent<Rigidbody> ().drag = 2f;
 
+					inventory._inMatthew.GetComponent<Rigidbody> ().drag = 2f;
+					inventory._inMatthew.GetComponent<Rigidbody> ().velocity = new Vector3(0, 0, 0);
 					inventory.removeItemMatthew ();
 
 				}

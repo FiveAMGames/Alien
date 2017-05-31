@@ -28,6 +28,7 @@ public class catAnimation : MonoBehaviour {
 		GetComponent<Animator> ().enabled = false;
 		//GetComponent<MyItem> ().matthewProperty = false;
 		bubbleLollipop.SetActive (true);
+		GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 		Destroy (DontTouchBubble);
 	}
 

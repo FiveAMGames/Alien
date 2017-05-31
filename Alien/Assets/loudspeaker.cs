@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class loudspeaker : MonoBehaviour {
 
+
+	public GameObject TheEndTest;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +20,7 @@ public class loudspeaker : MonoBehaviour {
 		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
 		if (dist < 4f) {
 			GetComponent<Animator> ().SetBool ("Speak", true);
+			TheEndTest.GetComponent<Animator> ().SetBool ("Open", true);
 			StartCoroutine (waitToBubble ());
 		}
 	}

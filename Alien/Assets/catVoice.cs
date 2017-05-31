@@ -18,6 +18,7 @@ public class catVoice : MonoBehaviour {
 		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
 		print ("CatVoiceCheck");
 		if (!GetComponent<MyItem> ().matthewProperty && dist < 3f && !check) {
+			GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 			Camera.main.GetComponent<VoiceOverScript> ().CatForBuisness ();
 			check = true;
 		}

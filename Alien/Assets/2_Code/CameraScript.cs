@@ -11,6 +11,7 @@ public class CameraScript : MonoBehaviour {
 	public bool startCamera = true;
 	public bool cutScene= false;
 	public bool fromCutScene = false;
+	public bool hammerScene = false;
 	// Use this for initialization
 	void Start () { 
 		startpositionZ = transform.position.z;
@@ -19,6 +20,12 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (hammerScene) {
+			
+				transform.position = new Vector3 (-12.68f, -0.5f, 11.68f);
+
+		}
+
 		if (cutScene && transform.position.x > -12f && !fromCutScene ) {
 			transform.position = new Vector3 (transform.position.x - 2f * Time.deltaTime, transform.position.y, transform.position.z);
 		}
@@ -32,7 +39,7 @@ public class CameraScript : MonoBehaviour {
 			}
 		}
 
-		if (!startCamera && !cutScene) {
+		if (!startCamera && !cutScene && !hammerScene){ 
 			transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
 			//print(player.transform.position.y);
 			if (player.transform.position.y > 0f) {
