@@ -9,7 +9,7 @@ public class fadeSprite : MonoBehaviour {
 
 	 
 	private int drawDepth = -1000;
-	private float alpha = 1.0f;
+	public float alpha = 1.0f;
 	private int fadeDir = -1;
 
 	void OnGUI(){

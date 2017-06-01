@@ -32,15 +32,15 @@ public class VoiceOverScript : MonoBehaviour {
 			int rand = Random.Range (0, 3);
 			if (rand == 0) {
 				aud.clip = clips [3];
-				aud.Play ();
+			aud.PlayOneShot (clips [3]);
 			}
 			if (rand == 1) {
 				aud.clip = clips [4];
-				aud.Play ();
+			aud.PlayOneShot (clips [4]);
 			}
 			if (rand == 2) {
 				aud.clip = clips [5];
-				aud.Play ();
+			aud.PlayOneShot (clips [5]);
 			}
 
 	}
@@ -82,6 +82,10 @@ public class VoiceOverScript : MonoBehaviour {
 	}
 	public void LadyCast(){
 		aud.clip = clips [15];
+		aud.Play ();
+	}
+	public void LastVoice(){
+		aud.clip = clips [16];
 		aud.Play ();
 	}
 }

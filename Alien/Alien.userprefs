@@ -1,26 +1,29 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2_Code\CameraScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DontDestroyMusic.cs">
     <Files>
-      <File FileName="Assets\2_Code\MyItem.cs" Line="55" Column="8" />
+      <File FileName="Assets\2_Code\MyItem.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\rubik.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\CameraScript.cs" Line="25" Column="52" />
+      <File FileName="Assets\2_Code\CameraScript.cs" Line="37" Column="75" />
       <File FileName="Assets\VoiceOverScript.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\AnimationCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\MyInventory.cs" Line="20" Column="2" />
-      <File FileName="Assets\2_Code\catAnimation.cs" Line="31" Column="3" />
+      <File FileName="Assets\2_Code\MyInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\2_Code\catAnimation.cs" Line="1" Column="1" />
       <File FileName="Assets\bedTransparensy.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\Transporent.cs" Line="72" Column="9" />
+      <File FileName="Assets\2_Code\Transporent.cs" Line="1" Column="1" />
       <File FileName="Assets\bed.cs" Line="1" Column="1" />
       <File FileName="Assets\loudspeaker.cs" Line="23" Column="64" />
       <File FileName="Assets\triggerNoSpot.cs" Line="1" Column="1" />
-      <File FileName="Assets\2_Code\KlavierTrigger.cs" Line="55" Column="86" />
-      <File FileName="Assets\LadyAlien.cs" Line="23" Column="2" />
-      <File FileName="Assets\castExpolision.cs" Line="24" Column="72" />
+      <File FileName="Assets\2_Code\KlavierTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\LadyAlien.cs" Line="1" Column="1" />
+      <File FileName="Assets\castExpolision.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\LollipopBowlTriggerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\2_Code\lollipop.cs" Line="1" Column="1" />
-      <File FileName="Assets\catVoice.cs" Line="21" Column="70" />
-      <File FileName="Assets\2_Code\PlayerMovement.cs" Line="33" Column="18" />
+      <File FileName="Assets\catVoice.cs" Line="1" Column="1" />
+      <File FileName="Assets\2_Code\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\2_Code\AlienInBed.cs" Line="46" Column="1" />
+      <File FileName="Assets\fadeSprite.cs" Line="15" Column="15" />
+      <File FileName="Assets\DontDestroyMusic.cs" Line="49" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

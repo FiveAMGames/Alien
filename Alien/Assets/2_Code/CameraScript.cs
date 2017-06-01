@@ -11,16 +11,37 @@ public class CameraScript : MonoBehaviour {
 	public bool startCamera = true;
 	public bool cutScene= false;
 	public bool fromCutScene = false;
+	public GameObject TheEndTest;
 	public bool hammerScene = false;
+	public bool lastScene = false;
 	// Use this for initialization
 	void Start () { 
 		startpositionZ = transform.position.z;
 		player = GameObject.Find ("Player");
 	}
-	
+
+	public void WindowAnimation(){
+		
+		TheEndTest.GetComponent<Animator> ().SetBool ("Open", true);
+	}
+
+	IEnumerator waitFade(){
+		yield return new WaitForSeconds (2f);
+		GetComponent<fadeSprite> ().BeginFade (-1);
+	}
+
+	public void LastScene(){
+		GetComponent<fadeSprite> ().alpha = 1f;
+
+		GetComponent<fadeSprite> ().fadeSpeed = 0.1f;
+		GameObject.Find ("Music").GetComponent<DontDestroyMusic> ().EndMusic ();
+		StartCoroutine (waitFade ());
+
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (hammerScene) {
+		if (hammerScene &&!lastScene) {
 			
 				transform.position = new Vector3 (-12.68f, -0.5f, 11.68f);
 
@@ -39,9 +60,9 @@ public class CameraScript : MonoBehaviour {
 			}
 		}
 
-		if (!startCamera && !cutScene && !hammerScene){ 
+		if (!startCamera && !cutScene && !hammerScene &&!lastScene){ 
 			transform.position = new Vector3 (player.transform.position.x, posY.position.y, transform.position.z);
-			//print(player.transform.position.y);
+			//print(player.transform.position.y); 
 			if (player.transform.position.y > 0f) {
 				if (Vector3.Distance (transform.position, player.transform.position) >= 5f) {
 			

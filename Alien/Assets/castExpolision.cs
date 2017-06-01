@@ -26,8 +26,11 @@ public class castExpolision : MonoBehaviour {
 		Camera.main.GetComponent<CameraScript> ().hammerScene = true;
 		runAwayAnim.GetComponent<Animator> ().SetBool ("Go", true);
 		runAwayPos.GetComponent<Animator> ().SetBool ("RunAway", true);
+
 		yield return new WaitForSeconds (2f);
 		GetComponentInParent<Animator> ().SetBool ("CastBreak", true);
+		Camera.main.GetComponent<VoiceOverScript> ().LastVoice ();
+		Camera.main.GetComponent<Animator> ().enabled = true;
 		Destroy (gameObject);
 	}
 	public void Go(){

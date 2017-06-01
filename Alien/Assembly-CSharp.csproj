@@ -87,6 +87,7 @@
      <Compile Include="Assets\2_Code\schrankLockerScript.cs" />
      <Compile Include="Assets\2_Code\whereToPlaceInHandForPrefab.cs" />
      <Compile Include="Assets\CursorTextures.cs" />
+     <Compile Include="Assets\DontDestroyMusic.cs" />
      <Compile Include="Assets\LadyAlien.cs" />
      <Compile Include="Assets\SoundBedScene.cs" />
      <Compile Include="Assets\VoiceOverScript.cs" />
