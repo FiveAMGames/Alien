@@ -90,6 +90,7 @@
      <Compile Include="Assets\DontDestroyMusic.cs" />
      <Compile Include="Assets\LadyAlien.cs" />
      <Compile Include="Assets\SoundBedScene.cs" />
+     <Compile Include="Assets\StartScreen.cs" />
      <Compile Include="Assets\VoiceOverScript.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Enums\ColorValues.cs" />
      <Compile Include="Assets\_MK\MKToon\Demo\HSVPicker\Events\ColorChangedEvent.cs" />
@@ -116,7 +117,10 @@
      <Compile Include="Assets\fadeSprite.cs" />
      <Compile Include="Assets\greenAlien.cs" />
      <Compile Include="Assets\loudspeaker.cs" />
+     <Compile Include="Assets\praesi.cs" />
+     <Compile Include="Assets\rubikBack.cs" />
      <Compile Include="Assets\triggerNoSpot.cs" />
+     <Compile Include="Assets\uncurable.cs" />
      <None Include="Assets\_MK\MKToon\Shader\MKToonTransparentOutline.shader" />
      <None Include="Assets\_MK\MKToon\Shader\Inc\MKToonSurf.cginc" />
      <None Include="Assets\ComixShader\Shader\ComixTerrain.shader" />

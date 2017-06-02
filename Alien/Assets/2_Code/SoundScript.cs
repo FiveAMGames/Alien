@@ -8,7 +8,7 @@ public class SoundScript : MonoBehaviour {
 	public AudioClip takeItemFromWorld;
 	public AudioClip jump;
 	public AudioClip takeMatthew;
-
+	public AudioClip wrongMatthew;
 
 
 	AudioSource aud;
@@ -34,5 +34,8 @@ public class SoundScript : MonoBehaviour {
 	}
 	public void PlayMatthewTake(){
 		aud.PlayOneShot (takeMatthew);
+	}
+	public void Wrong(){
+		aud.PlayOneShot (wrongMatthew);
 	}
 }

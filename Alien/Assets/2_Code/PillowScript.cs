@@ -20,8 +20,13 @@ public class PillowScript : MonoBehaviour {
 		
 	}
 	void OnMouseDown(){
-		pillowAfter.SetActive (enabled);
-		Destroy (gameObject);
+		if (!pillowAfter.activeSelf) {
+			GetComponent<AudioSource> ().Play ();
+			pillowAfter.SetActive (enabled);
+		}
+		//Destroy (gameObject);
+		GetComponent<Collider> ().enabled = false;
+		GetComponent<Renderer> ().enabled = false;
 		key.GetComponent<Collider> ().enabled = true;
 	}
 	void OnMouseEnter(){

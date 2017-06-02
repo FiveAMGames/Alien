@@ -10,6 +10,7 @@ public class KlavierTrigger : MonoBehaviour {
 	public AudioClip[] clips;
 	private int rand;  //random
 	public GameObject bubblePiano;
+	public bool musicFade = false;
 	// Use this for initialization
 	void Start () {
 		inventory = GameObject.Find ("Game").GetComponent<MyInventory> ();
@@ -42,7 +43,7 @@ public class KlavierTrigger : MonoBehaviour {
 
 					
 				 
-
+				GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyMusic> ().fadeOut = true;
 
 				GetComponent<AudioSource> ().clip = clips [rand];
 				//Camera.main.GetComponent<VoiceOverScript> ().MatthewPlaysSoWell ();

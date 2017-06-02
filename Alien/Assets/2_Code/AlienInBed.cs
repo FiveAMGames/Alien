@@ -73,7 +73,7 @@ public class AlienInBed : MonoBehaviour {
 	}
 	IEnumerator loadLevel(){
 		yield return new WaitForSeconds (3f);
-		SceneManager.LoadScene (1);
+		SceneManager.LoadScene (2);
 	}
 
 }

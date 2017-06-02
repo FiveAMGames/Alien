@@ -154,7 +154,9 @@ public class AnimationCharacter : MonoBehaviour {
 	}
 	public void KlavierEnd(){
 		GetComponentInParent<PlayerMovement> ().moveable = true;
+		GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyMusic> ().fadeOut = false;
 		anim.SetBool ("Klavier", false);
+
 	}
 	public void Rope(){
 		
@@ -172,6 +174,7 @@ public class AnimationCharacter : MonoBehaviour {
 		GetComponentInParent<PlayerMovement> ().moveable = true;
 		CameraVoiceOver.GetComponent<CameraScript> ().startCamera = false;
 		anim.SetTrigger ("IntroOut");
+		GameObject.Find ("Cursor").GetComponent<CursorTextures> ().NormalCurs ();
 	}
 
 	public void KlavierEndAnimation(){

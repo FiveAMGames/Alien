@@ -88,4 +88,13 @@ public class VoiceOverScript : MonoBehaviour {
 		aud.clip = clips [16];
 		aud.Play ();
 	}
+	public void Uncurable(){
+		aud.clip = clips [17];
+		aud.Play ();
+	}
+	public void Matthew(){
+		aud.clip = clips [18];
+		aud.Play ();
+
+	}
 }

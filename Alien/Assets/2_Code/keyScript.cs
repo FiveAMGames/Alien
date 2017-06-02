@@ -29,6 +29,9 @@ public class keyScript : MonoBehaviour {
 
 	public float distanceFromPlayerZ = 0.4f;
 
+	public AudioClip take;
+	public AudioClip boom;
+
 	// Use this for initialization
 	void Start () {
 		originalSize = transform.localScale;
@@ -88,6 +91,8 @@ public class keyScript : MonoBehaviour {
 
 	void OnMouseDown(){
 		if (!inHand) {
+			GetComponent<AudioSource> ().clip = take;
+			GetComponent<AudioSource> ().Play ();
 			GetComponent<Collider> ().isTrigger = true;
 			GetComponent<Rigidbody> ().isKinematic = true;
 			forAnimetion.SendMessage ("KeyInHand");
@@ -98,6 +103,8 @@ public class keyScript : MonoBehaviour {
 			timer = 0f;
 			inHand = true;
 		} else {
+			GetComponent<AudioSource> ().clip = take;
+			GetComponent<AudioSource> ().Play ();
 			Cursor.SetCursor (null, hotspot, CursorMode.ForceSoftware);
 			transform.parent = null;
 			GetComponent<Collider> ().isTrigger = false;
@@ -113,6 +120,8 @@ public class keyScript : MonoBehaviour {
 	}
 	void DropItem(){
 		if (onDragging) {
+			GetComponent<AudioSource> ().clip = take;
+			GetComponent<AudioSource> ().Play ();
 			
 				print ("In dropItem methode");
 				transform.parent = null;
@@ -188,6 +197,14 @@ public class keyScript : MonoBehaviour {
 
 				}
 			}
+		}
+	}
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.CompareTag ("Ground") || coll.gameObject.CompareTag ("Wall")) {
+			//if (!GetComponent<AudioSource> ().isPlaying) {
+				
+			GetComponent<AudioSource> ().PlayOneShot (boom);
+			//}
 		}
 	}
 }

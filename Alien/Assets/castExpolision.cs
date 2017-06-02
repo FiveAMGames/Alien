@@ -22,7 +22,7 @@ public class castExpolision : MonoBehaviour {
 		GameObject.Find ("Player").transform.position = playersPlaceAfterHammer.position;
 		GameObject.Find ("Player").transform.rotation = playersPlaceAfterHammer.rotation;
 		playerAnim.GetComponent<Animator> ().SetTrigger ("newFriendTrigger");
-		GameObject.Find ("Player").GetComponent<PlayerMovement> ().moveable = false;
+		GameObject.Find ("Player").GetComponent<PlayerMovement> ().moveable = false; 
 		Camera.main.GetComponent<CameraScript> ().hammerScene = true;
 		runAwayAnim.GetComponent<Animator> ().SetBool ("Go", true);
 		runAwayPos.GetComponent<Animator> ().SetBool ("RunAway", true);
@@ -35,6 +35,7 @@ public class castExpolision : MonoBehaviour {
 	}
 	public void Go(){
 		//StartCoroutine(SplitMesh(true));
+		Destroy(GameObject.Find("Game").GetComponent<MyInventory>()._inHand.gameObject);
 		gypsum.SetActive(true);
 		GetComponent<Renderer> ().enabled = false;
 		StartCoroutine (waitSeconds ());

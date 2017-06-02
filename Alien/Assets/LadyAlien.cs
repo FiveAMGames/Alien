@@ -15,7 +15,7 @@ public class LadyAlien : MonoBehaviour {
 	}
 	void OnMouseDown(){
 		float dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
-		if (dist < 4f) {
+		if (dist < 4f && !Camera.main.GetComponent<CameraScript>().cutScene && !Camera.main.GetComponent<CameraScript>().hammerScene && !Camera.main.GetComponent<CameraScript>().lastScene) {
 			Camera.main.GetComponent<VoiceOverScript> ().LadyCast ();
 
 		}

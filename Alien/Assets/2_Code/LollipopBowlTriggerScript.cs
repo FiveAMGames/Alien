@@ -31,6 +31,7 @@ public class LollipopBowlTriggerScript : MonoBehaviour {
 
 				Destroy (BubbleHunger);
 				bubblePassOut.SetActive (true);
+				catAnim.GetComponentInParent<catAnimation> ().Miauu ();
 				Destroy (gameObject);
 			}
 		}

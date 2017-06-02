@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class catAnimation : MonoBehaviour {
-
+	public GameObject CatGreen;
 	public GameObject bubbleLollipop; 
 	public GameObject catAnim;
 	public GameObject hammer;
@@ -11,7 +11,7 @@ public class catAnimation : MonoBehaviour {
 	public GameObject DontTouchBubble;
 	public AudioClip miau1;
 	public AudioClip miau2;
-
+	public AudioClip miauuuuaa;
 
 	public Transform placeGreenAlien;
 	// Use this for initialization
@@ -23,6 +23,10 @@ public class catAnimation : MonoBehaviour {
 	void Update () {
 		
 	}
+	public void Miauu(){
+		catAnim.GetComponent<AudioSource> ().PlayOneShot (miauuuuaa); 
+	}
+
 	public void StopWalkAnimation(){
 		catAnim.GetComponent<Animator> ().SetBool ("Walk", false);
 		GetComponent<Animator> ().enabled = false;
@@ -38,10 +42,12 @@ public class catAnimation : MonoBehaviour {
 		GetComponent<MyItem> ().matthewProperty = true;
 		transform.position = placeGreenAlien.position;
 		transform.rotation = placeGreenAlien.rotation;
+
 		hammer.transform.parent = null;
 		hammer.GetComponent<MyItem> ().matthewProperty = false;
 		hammer.GetComponent<Rigidbody> ().isKinematic = false;
 		hammer.GetComponent<Collider> ().isTrigger = false;
+		CatGreen.SetActive (true);
 		Camera.main.GetComponent<VoiceOverScript> ().CatWillComeBack ();
 	}
 
@@ -60,11 +66,11 @@ public class catAnimation : MonoBehaviour {
 
 				if (catAnim.GetComponent<AudioSource> ().clip == miau1) {
 					catAnim.GetComponent<AudioSource> ().clip = miau2;
-					catAnim.GetComponent<AudioSource> ().Play ();
+						catAnim.GetComponent<AudioSource> ().PlayOneShot(miau2);
 
 				} else {
 					catAnim.GetComponent<AudioSource> ().clip = miau1;
-					catAnim.GetComponent<AudioSource> ().Play ();
+						catAnim.GetComponent<AudioSource> ().PlayOneShot (miau1);
 				}
 				}
 					}

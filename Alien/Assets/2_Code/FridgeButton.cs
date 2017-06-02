@@ -23,6 +23,7 @@ public class FridgeButton : MonoBehaviour {
 			
 			if (!placeForBowl.GetComponent<BowlPlace> ().placeIsOccupied) {
 				Instantiate (catFoodPrefab, placeForBowl);
+				GetComponent<AudioSource> ().Play ();
 				if (!count) {
 					Camera.main.GetComponent<VoiceOverScript> ().CatDeservesSomeFood ();
 					count = true;

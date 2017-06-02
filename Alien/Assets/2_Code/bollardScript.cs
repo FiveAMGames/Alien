@@ -15,5 +15,6 @@ public class bollardScript : MonoBehaviour {
 	}
 	public void Interaction(){
 		rope.SetActive (true);
+		GameObject.Find ("Cursor").GetComponent<CursorTextures> ().NormalCurs ();
 	}
 }

@@ -17,6 +17,7 @@ public class MyInventory : MonoBehaviour {
 	public GameObject takeBolloon;
 	public GameObject takeMatthew;
 
+	public GameObject mathewCollider;
 
 	float timer = 0f;
 
@@ -38,8 +39,9 @@ public class MyInventory : MonoBehaviour {
 		if (_inHand ==null) {
 			canTakeRightHand = true;
 		}
-		else if (_inMatthew) {
-			//GameObject.Find ("Player").GetComponentInChildren<AnimationCharacter> ().LeftHandUp();
+		if (_inMatthew!= null && _inMatthew.name == "keyFlat") {
+			print ("matthew has smth");
+			_inMatthew.transform.localPosition = new Vector3 (0, 0, 0);
 		}
 
 
@@ -91,11 +93,14 @@ public class MyInventory : MonoBehaviour {
 	}
 
 	public void removeItemMatthew(){
+		_inMatthew.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+		mathewCollider.GetComponent<Collider> ().enabled = true;
 		_inMatthew.transform.parent = null;
 		_inMatthew.GetComponent<Rigidbody> ().isKinematic = false;
 		_inMatthew.GetComponent<Collider> ().isTrigger = false;
 		_inMatthew.GetComponent<MyItem> ().matthewProperty = false;
 		_inMatthew = null;
+		canTakeMatthew = true;
 
 	}
 
@@ -138,14 +143,16 @@ public class MyInventory : MonoBehaviour {
 		} else {
 			if (canTakeMatthew) {
 				takeMatthew.SetActive (true);  //bubble
-
+				mathewCollider.GetComponent<Collider> ().enabled = true;
 				item.transform.parent = item.GetComponent<MyItem>().placeInMatthew;
 				item.GetComponent<Collider> ().isTrigger = true;
 				item.transform.position = item.GetComponent<MyItem>().placeInMatthew.position;
 				item.transform.rotation =item.GetComponent<MyItem>().placeInMatthew.rotation;
+				item.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 				Debug.Log ("Matthew has " + item.name);
 				_inMatthew = item;
 				item.GetComponent<Rigidbody> ().isKinematic = true;
+				canTakeMatthew = false;
 			}
 		}
 	}

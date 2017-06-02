@@ -12,14 +12,19 @@ public class CursorTextures : MonoBehaviour {
 	public CursorMode cursorMode = CursorMode.ForceSoftware;
 	public Vector2 hotspot = Vector2.zero;
 
+	private GameObject player;
 
 	void Start () {
 		Cursor.SetCursor (alpha, hotspot,CursorMode.ForceSoftware);
+		player = GameObject.Find ("Player");
 	}
 	
 
 	void Update () {
 		
+	}
+	public void ItemCurs(){
+		Cursor.SetCursor (item, hotspot,CursorMode.ForceSoftware);
 	}
 
 	public void NormalCurs(){
@@ -30,5 +35,8 @@ public class CursorTextures : MonoBehaviour {
 		Cursor.SetCursor (alpha, hotspot,CursorMode.ForceSoftware);
 	}
 
+	public void InteractionCurs(){
+		Cursor.SetCursor (interaction, hotspot,CursorMode.ForceSoftware);
+	}
 }
 

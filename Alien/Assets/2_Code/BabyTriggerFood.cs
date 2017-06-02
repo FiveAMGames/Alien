@@ -36,7 +36,7 @@ public class BabyTriggerFood : MonoBehaviour {
 				lollipop.transform.SetParent (null);
 
 				lollipop.transform.position =lollipopDropPlace.position;
-
+				babyAnim.GetComponent<AudioSource> ().Play ();
 				//lollipop.GetComponent<Rigidbody> ().interpolation = RigidbodyInterpolation.None;
 				//Slollipop.GetComponent<Collider> ().isTrigger = true;
 				newTriggerMatthew.GetComponent<Collider> ().enabled = true;

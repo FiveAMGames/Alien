@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour {
 
@@ -14,10 +15,16 @@ public class CameraScript : MonoBehaviour {
 	public GameObject TheEndTest;
 	public bool hammerScene = false;
 	public bool lastScene = false;
+
+	public GameObject credits;
 	// Use this for initialization
 	void Start () { 
 		startpositionZ = transform.position.z;
 		player = GameObject.Find ("Player");
+	}
+
+	public void Credits(){
+		credits.SetActive (true);
 	}
 
 	public void WindowAnimation(){
@@ -41,8 +48,16 @@ public class CameraScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKey (KeyCode.Escape)) {
+			SceneManager.LoadScene (0);
+		}
+
+
+
 		if (hammerScene &&!lastScene) {
-			
+			Cursor.lockState = CursorLockMode.Locked;
+			GameObject.Find ("Cursor").GetComponent<CursorTextures> ().AlphaCurs ();
 				transform.position = new Vector3 (-12.68f, -0.5f, 11.68f);
 
 		}

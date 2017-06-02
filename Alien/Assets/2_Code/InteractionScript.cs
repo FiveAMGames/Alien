@@ -6,6 +6,8 @@ public class InteractionScript : MonoBehaviour {
 
 	public string nameOfInteractableObject;
 
+	public GameObject greenCat;
+	public GameObject bubbleGreen;
 	public GameObject whatHappens;
 	public GameObject setActive;
 	float dist = 0f;
@@ -28,7 +30,7 @@ public class InteractionScript : MonoBehaviour {
 		Debug.Log ("Yay! Interaction!!!");
 		if (greenAlien) {
 		
-			if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 6f) {   //TODO doesn't work properly. NullReference O_o
+			if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
 				
 				Debug.Log ("Boom");
 
@@ -41,8 +43,10 @@ public class InteractionScript : MonoBehaviour {
 				}
 				if (whatHappens != null) {
 					whatHappens.SendMessage ("Go");
+					bubbleGreen.SetActive (false);
+				//	greenCat.SetActive (true);
 
-						GetComponent<Collider> ().enabled = false;
+						//GetComponent<Collider> ().enabled = false;
 
 				}
 			} else {
@@ -50,7 +54,7 @@ public class InteractionScript : MonoBehaviour {
 			}
 		
 		}
-		else if ((inventory.getItemInHand ().name == nameOfInteractableObject) && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
+		else if ( inventory.getItemInHand ()){ if ( inventory.getItemInHand ().name == nameOfInteractableObject && dist < 4f) {   //TODO doesn't work properly. NullReference O_o
 			
 			Debug.Log ("Boom");
 
@@ -60,12 +64,16 @@ public class InteractionScript : MonoBehaviour {
 
 				inventory.removeItem (inventory.getItemInHand ());
 				setActive.SetActive (true);
+					GameObject.Find ("Cursor").GetComponent<CursorTextures> ().NormalCurs ();
 			}
 			if (whatHappens != null) {
 				whatHappens.SendMessage ("Go");
 
 			}
-		} else {
+		}}
+
+
+		else {
 			Debug.Log ("Wrong item!");
 		}
 	}
@@ -76,6 +84,18 @@ public class InteractionScript : MonoBehaviour {
 		} else
 			return false;
 			
-		
+
+	}
+	void OnMouseOver(){
+		if (inventory._inHand == null && dist < 4f) {
+			GameObject.Find ("Cursor").GetComponent<CursorTextures> ().InteractionCurs ();
+		}
+	}
+
+	void OnMouseExit(){
+		if (inventory._inHand == null && dist < 4f) {
+			GameObject.Find ("Cursor").GetComponent<CursorTextures> ().NormalCurs ();
+		}
+
 	}
 }

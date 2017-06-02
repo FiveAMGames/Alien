@@ -20,7 +20,7 @@ public class loudspeaker : MonoBehaviour {
 		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
 		if (dist < 4f) {
 			GetComponent<Animator> ().SetBool ("Speak", true);
-			TheEndTest.GetComponent<Animator> ().SetBool ("Open", true);
+			//TheEndTest.GetComponent<Animator> ().SetBool ("Open", true);
 			StartCoroutine (waitToBubble ());
 		}
 	}

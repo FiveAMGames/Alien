@@ -21,8 +21,9 @@ public class MatthewTrigger : MonoBehaviour {
 	public void OnTriggerStay(Collider coll){
 		if (coll.CompareTag ("Player")) {
 			
-			inventory.MatthewAddItem (relatedObject);
+
 			if (inventory.canTakeMatthew) {
+				inventory.MatthewAddItem (relatedObject);
 				coll.GetComponent<SoundScript> ().PlayMatthewTake ();
 				if (keyFlat) {
 					Camera.main.GetComponent<VoiceOverScript> ().MatthewTakesKey ();

@@ -7,9 +7,11 @@ public class rubik : MonoBehaviour {
 	public GameObject RightHand;
 	public GameObject MatthewHand;
 	public bool rubikOn = false;
+	private Vector3 originalScale;
+	private bool noVoiceAnemore = false;
 	// Use this for initialization
 	void Start () {
-		
+		originalScale = transform.lossyScale;
 	}
 	
 	// Update is called once per frame
@@ -19,7 +21,7 @@ public class rubik : MonoBehaviour {
 	void OnMouseDown(){
 		if (!RightHand.GetComponentInParent<Animator> ().GetBool ("LeftHand") && !RightHand.GetComponentInParent<Animator> ().GetBool ("RightHand") && !RightHand.GetComponentInParent<Animator> ().GetBool ("Klavier")) {
 			float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
-			if (dist < 2f) {
+			if (dist < 2f && !noVoiceAnemore) {
 				rubikOn = false;
 				Camera.main.GetComponent<VoiceOverScript> ().UnsolvedRubik ();
 				transform.position = RightHand.transform.position;
@@ -29,7 +31,7 @@ public class rubik : MonoBehaviour {
 				GetComponentInChildren<Animator> ().SetBool ("Mess", true);
 				GetComponent<Rigidbody> ().isKinematic = true;
 				GameObject.Find ("Game").GetComponent<MyInventory> ().stopTaking = true;
-
+				noVoiceAnemore = true;
 
 			}
 		}
@@ -57,6 +59,26 @@ public class rubik : MonoBehaviour {
 		GetComponent<Rigidbody> ().isKinematic = false;
 
 		GetComponentInChildren<Animator> ().SetBool ("InMatthew", false);
+		transform.localScale = originalScale;
+		noVoiceAnemore = false;
 	}
 
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.CompareTag ("Ground") || coll.gameObject.CompareTag ("Wall")) {
+			GetComponent<AudioSource> ().Play ();
+		}
+	}
+
+	void OnMouseOver(){
+		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
+		if (dist < 3f) {
+			GameObject.Find ("Cursor").GetComponent<CursorTextures> ().ItemCurs ();
+		}
+	}
+	void OnMouseExit(){
+		float dist = Vector3.Distance (GameObject.Find ("Player").transform.position, transform.position);
+		if (dist < 3f) {
+			GameObject.Find ("Cursor").GetComponent<CursorTextures> ().NormalCurs ();
+		}
+	}
 }

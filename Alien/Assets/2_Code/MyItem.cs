@@ -49,6 +49,7 @@ public class MyItem : MonoBehaviour
 	private bool mouseOutOfTheRange = false;
 	float dist;
 
+	private Vector3 originalScale;
 
 	public void Awake ()
 	{
@@ -71,7 +72,7 @@ public class MyItem : MonoBehaviour
 	{
 		positionForDragStart = GameObject.Find ("positionForDragStart");
 		joint = GameObject.Find ("Joint");
-
+		originalScale = transform.localScale;
 	}
 	
 	// Update is called once per frame
@@ -80,10 +81,10 @@ public class MyItem : MonoBehaviour
 		/*if (Input.GetMouseButtonDown (0)) {
 			MouseClick ();
 		}*/
-		
+		dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
 		if (!matthewProperty) {
 			
-			dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
+
 
 
 
@@ -138,7 +139,8 @@ public class MyItem : MonoBehaviour
 
 
 	void DragItem(){
-		
+
+		GameObject.Find ("Cursor").GetComponentInParent<CursorTextures> ().AlphaCurs();
 		transform.rotation = Quaternion.identity;
 
 		
@@ -189,7 +191,11 @@ public class MyItem : MonoBehaviour
 		  
 
 		if (Physics.Raycast (ray, out hit, Mathf.Infinity, 1 << 8)) {
-			
+
+
+			transform.localScale = new Vector3 (originalScale.x + 0.05f * Mathf.Sin (Time.time * 15f), originalScale.y + 0.05f * Mathf.Sin (Time.time * 15f), originalScale.z + 0.05f * Mathf.Sin (Time.time * 15f));
+
+
 			if (hit.collider.GetComponent<InteractionScript> () != null) {
 				if (hit.collider.GetComponent<InteractionScript> ().CheckIfInteractable (gameObject.name) == true) {  //TODO Null reference...only on the edge of cube
 				
@@ -224,6 +230,7 @@ public class MyItem : MonoBehaviour
 			GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
 			GetComponent<Rigidbody> ().isKinematic = false;
 			GetComponent<Collider> ().isTrigger = false;
+			GameObject.Find ("Cursor").GetComponentInParent<CursorTextures> ().NormalCurs();
 			inventory.removeItem (this);
 		}
 	}
@@ -258,14 +265,15 @@ public class MyItem : MonoBehaviour
 				} else {
 					print ("has an interaction object!");
 				}
+				GameObject.Find ("Cursor").GetComponentInParent<CursorTextures> ().NormalCurs ();
 				return;
 			}
 
 
 
-			if (dist<3f){
+			if (dist < 3f) {
 				
-			if (!inInventory ) {  
+				if (!inInventory) {  
 					if (!inventory.stopTaking) {
 						//place in inventory
 						GetComponent<Rigidbody> ().isKinematic = true;
@@ -273,7 +281,7 @@ public class MyItem : MonoBehaviour
 						GetComponentInChildren<InHandColliderScript> ().inHand = true;
 						GetComponentInChildren<SphereCollider> ().enabled = true;
 					}
-			} else {  
+				} else {  
 					//if it's already in inventory
 					if (!onDragging) {
 						GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
@@ -292,7 +300,11 @@ public class MyItem : MonoBehaviour
 				}	
 			}
 	
-	}
+		} else {
+			if (inventory._inMatthew == this.gameObject) {
+				Camera.main.GetComponent<VoiceOverScript> ().Matthew ();
+			}
+		}
 	}
 
 
@@ -339,5 +351,18 @@ public class MyItem : MonoBehaviour
 			}
 		}*/
 	}
+
+	void OnMouseOver(){
+		if (!this.onDragging && dist < 3f) {
+			GameObject.Find ("Cursor").GetComponentInParent<CursorTextures> ().ItemCurs ();
+		}
+	}
+
+	void OnMouseExit(){
+		if (!this.onDragging && dist < 3f) {
+			GameObject.Find ("Cursor").GetComponentInParent<CursorTextures> ().NormalCurs();
+		}
+	}
+
 }
 //Предметы в руке проходят
